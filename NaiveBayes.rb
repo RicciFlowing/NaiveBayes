@@ -1,21 +1,26 @@
 class TextClassifier
-  def initialize()
+  def initialize(path)
     @examples = TrainingExamples.new
+    @text = File.read(path)
   end
 
 
-  def classify(text)
-    words = text.split(/\W+/)
+  def classify()
+    words = @text.split(/\W+/)
     words = words.slice(0,100) # Use only the first 100 words for classification
     pIsInteristing = @examples.p_apriori("I")
-    words.each_with_index do |word ,index|
-      pIsInteristing *= @examples.p(index,word,"I")
+    words.each do |word|
+      pIsInteristing *= @examples.p(word,"I")
     end
     pIsNotInteristing = @examples.p_apriori("!I")
-    words.each_with_index do |word ,index|
-      pIsNotInteristing *= @examples.p(index,word,"!I")
+    words.each do |word|
+      pIsNotInteristing *= @examples.p(word,"!I")
     end
-    return [pIsInteristing, pIsNotInteristing ]
+     if pIsInteristing > pIsNotInteristing
+       puts "Interisting"
+     else
+       puts "Not interisting"
+     end
   end
 end
 
@@ -46,7 +51,7 @@ class TrainingExamples
     end
   end
 
-  def p(position, word, klass)
+  def p( word, klass)
     if klass=='I'
       texts  =  @positive_texts
     else
@@ -55,14 +60,13 @@ class TrainingExamples
 
     count = 0
     text_count = texts.length
-
     texts.each do |text|
            words = text.split(/\W+/)
-          if words[position] == word
+          if words.include? word
             count += 1
           end
     end
-    probability = count.to_f / text_count
+    probability = (count.to_f / text_count) + 0.01
   end
 
   def print
@@ -74,5 +78,8 @@ class TrainingExamples
 
 end
 
-classifier = TextClassifier.new
-puts classifier.classify("Blender ist eine freie, mit der GPL lizenzierte 3D-Grafiksoftware.");
+blender_interview = TextClassifier.new("test_texts/blender_campbell_interview")
+blender_interview.classify();
+
+senegal = TextClassifier.new("test_texts/senegal_on_wikipedia")
+senegal.classify();
