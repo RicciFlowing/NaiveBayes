@@ -18,8 +18,10 @@ class TextClassifier
     end
      if pIsInteristing > pIsNotInteristing
        puts "Interisting"
+       puts [pIsInteristing, pIsNotInteristing]
      else
        puts "Not interisting"
+       puts [pIsInteristing, pIsNotInteristing]
      end
   end
 end
@@ -29,12 +31,10 @@ class TrainingExamples
     @positive_texts = Array.new
     @negative_texts = Array.new
 
-
     Dir.foreach('examples/positive/') do |example_file|
       next if example_file == '.' or example_file == '..'
         @positive_texts << File.read('examples/positive/' + example_file)
       end
-
 
     Dir.foreach('examples/negative/') do |example_file|
       next if example_file == '.' or example_file == '..'
@@ -77,9 +77,3 @@ class TrainingExamples
   end
 
 end
-
-blender_interview = TextClassifier.new("test_texts/blender_campbell_interview")
-blender_interview.classify();
-
-senegal = TextClassifier.new("test_texts/senegal_on_wikipedia")
-senegal.classify();
