@@ -1,0 +1,31 @@
+
+
+Here are the notes from today's meeting in irc.freenode.net #blendercoders.
+
+Ton writes:
+
+    Hi all,
+
+    Here are the notes from today's 14 UTC meeting in irc.freenode.net #blendercoders.
+
+    1) Release targets for Blender 2.76
+
+        Planning
+        According to schedule, we move to BCon3 today. That means that the release targets are defined, only what's agreed on and listed will go to git master.
+        Target 'PTex' is going to be postponed again... we might need another developer to assist. Also to check on UDIM texture support.
+        OpenSubdiv is in progress. Sergey suggests to make it a build option, because of OS X not supporting a mix of OpenGL 4 calls and older versions. Discussion on this is open...
+        will be done here and/or in IRC.
+        AMD news: OS X driver team managed to get the old Cycles ("Mega Kernel") compile and work, the next update of the beta "El Capitan" OS X should (might?) have this driver,
+        we'll keep you posted. The OS X team is working with us on getting split kernel to work too.
+        Interesting article, AMD writing about their Blender commitment.
+        Antonis Ryakiotakis: speed optimizations for viewport are ready for master. Doc coming.
+
+    2) Other projects
+
+        Joshua Leung works on new Grease Pencil 'sculpt' feature for 2.77:
+
+        Joerg Mueller: the new Audaspace library will go to the system libraries and not into external, so that we can check how building with that works out.
+        Campbell worked on script setup to do more exact OpenGL performance benchmarking. (Volunteers needed to add content and create a great Blender bench for gfx cards).
+        Gooseberry final dev report is still in progress...
+
+    -Ton-
