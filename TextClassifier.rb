@@ -8,14 +8,10 @@ class TextClassifier
   def classify()
     words = @text.split(/\W+/)
     words = words.slice(0,100) # Use only the first 100 words for classification
-    pIsInteristing = @examples.p_apriori("I")
-    words.each do |word|
-      pIsInteristing *= @examples.p(word,"I")
-    end
-    pIsNotInteristing = @examples.p_apriori("!I")
-    words.each do |word|
-      pIsNotInteristing *= @examples.p(word,"!I")
-    end
+
+    pIsInteristing = calculateProbabilities(words, "I")
+    pIsNotInteristing = calculateProbabilities(words, "!I")
+
      if pIsInteristing > pIsNotInteristing
        puts "Interisting"
        puts [pIsInteristing, pIsNotInteristing]
@@ -24,6 +20,15 @@ class TextClassifier
        puts [pIsInteristing, pIsNotInteristing]
      end
   end
+
+  private
+    def calculateProbabilities(list_of_words, klass)
+      p = @examples.p_apriori(klass)
+      list_of_words.each do |word|
+        p *= @examples.p(word,klass)
+      end
+      return p
+    end
 end
 
 class TrainingExamples
