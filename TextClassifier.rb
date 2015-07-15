@@ -1,6 +1,6 @@
 class TextClassifier
-  def initialize(path)
-    @examples = TrainingExamples.new
+  def initialize(path, training_examples_path = 'examples/')
+    @examples = TrainingExamples.new(training_examples_path)
     @text = File.read(path)
   end
 
@@ -32,18 +32,19 @@ class TextClassifier
 end
 
 class TrainingExamples
-  def initialize()
+  def initialize(path)
+    @path = path
     @positive_texts = Array.new
     @negative_texts = Array.new
 
-    Dir.foreach('examples/positive/') do |example_file|
+    Dir.foreach(@path + 'positive/') do |example_file|
       next if example_file == '.' or example_file == '..'
-        @positive_texts << File.read('examples/positive/' + example_file)
+        @positive_texts << File.read(@path +'positive/' + example_file)
       end
 
-    Dir.foreach('examples/negative/') do |example_file|
+    Dir.foreach(@path + 'negative/') do |example_file|
       next if example_file == '.' or example_file == '..'
-        @negative_texts << File.read('examples/negative/' + example_file)
+        @negative_texts << File.read(@path +'negative/' + example_file)
       end
     end
 
