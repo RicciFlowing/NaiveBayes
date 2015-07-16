@@ -1,7 +1,18 @@
 require_relative '../lib/TextClassifier.rb'
+require 'benchmark'
 
-blender_interview = TextClassifier.new("test_texts/blender_2_75a_release_notes")
-blender_interview.classify();
+Benchmark.bm do |bm|
+  bm.report {
+              blender_release = TextClassifier.new("test_texts/blender_2_75a_release_notes")
+              blender_release.classify()
+            }
+  bm.report {
+              senegal = TextClassifier.new("test_texts/senegal_on_wikipedia")
+              senegal.classify();
+            }
+end
 
-senegal = TextClassifier.new("test_texts/senegal_on_wikipedia")
-senegal.classify();
+
+puts Benchmark.measure {
+
+}
