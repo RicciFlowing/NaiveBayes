@@ -3,6 +3,8 @@ class TrainingExamples
     @path = path
     @positive_texts = Array.new
     @negative_texts = Array.new
+    @positive_words = Array.new
+    @negative_words = Array.new
 
     Dir.foreach(@path + 'positive/') do |example_file|
       next if example_file == '.' or example_file == '..'
@@ -13,6 +15,15 @@ class TrainingExamples
       next if example_file == '.' or example_file == '..'
         @negative_texts << File.read(@path +'negative/' + example_file)
       end
+
+    @positive_texts.each do |text|
+      @positive_words += text.split(/\W+/)
+    end
+
+    @negative_texts.each do |text|
+      @negative_words += text.split(/\W+/)
+    end
+
     end
 
   def p_apriori(arg)
@@ -26,18 +37,18 @@ class TrainingExamples
 
   def p( word, klass)
     if klass=='I'
-      texts  =  @positive_texts
+      words  =  @positive_words
+      text_count = @positive_texts.length
     else
-      texts = @negative_texts
+      words = @negative_words
+      text_count = @negative_texts.length
     end
-
+    
     count = 0
-    text_count = texts.length
-    texts.each do |text|
-           words = text.split(/\W+/)
-          if words.include? word
-            count += 1
-          end
+    words.each do |word_in_klass|
+      if word === word_in_klass
+        count += 1
+      end
     end
     probability = (count.to_f / text_count) + 0.01
   end
