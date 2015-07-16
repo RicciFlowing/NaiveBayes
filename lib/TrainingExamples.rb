@@ -6,15 +6,8 @@ class TrainingExamples
     @positive_words = Array.new
     @negative_words = Array.new
 
-    Dir.foreach(@path + 'positive/') do |example_file|
-      next if example_file == '.' or example_file == '..'
-        @positive_texts << File.read(@path +'positive/' + example_file)
-      end
-
-    Dir.foreach(@path + 'negative/') do |example_file|
-      next if example_file == '.' or example_file == '..'
-        @negative_texts << File.read(@path +'negative/' + example_file)
-      end
+    load_examples_for('positive')
+    load_examples_for('negative')
 
     @positive_texts.each do |text|
       @positive_words += text.split(/\W+/)
@@ -24,7 +17,7 @@ class TrainingExamples
       @negative_words += text.split(/\W+/)
     end
 
-    end
+  end
 
   def p_apriori(arg)
     case arg
@@ -43,7 +36,7 @@ class TrainingExamples
       words = @negative_words
       text_count = @negative_texts.length
     end
-    
+
     count = 0
     words.each do |word_in_klass|
       if word === word_in_klass
@@ -59,5 +52,19 @@ class TrainingExamples
     puts "Negativ:"
     puts @negative_texts
   end
+
+  private
+    def load_examples_for(rating)
+      texts = Array.new
+      Dir.foreach(@path + rating) do |example_file|
+        next if example_file == '.' or example_file == '..'
+          texts << File.read(@path  +rating +'/' + example_file)
+        end
+      if(rating ==="positive")
+        @positive_texts = texts
+      else
+        @negative_texts = texts
+      end
+    end
 
 end
