@@ -1,1 +1,368 @@
+
+Blender (software)
+From Wikipedia, the free encyclopedia
+Blender Blender.svg
+Blender 2.75 opening splash screen.png
+Blender 2.75
+Developer(s) 	Blender Foundation
+Initial release 	1995; 20 years ago
+Stable release 	2.75 / July 1, 2015; 15 days ago[1]
+Written in 	C, C++, and Python
+Operating system 	Windows, OS X, Linux, FreeBSD
+Size 	53.3 - 120.9 MB (depending on operating system)[2]
+Type 	3D computer graphics software
+License 	GNU General Public License v2 or later[3]
+Website 	blender.org
+
 Blender is a professional free and open-source 3D computer graphics software product used for creating animated films, visual effects, art, 3D printed models, interactive 3D applications and video games. Blender's features include 3D modeling, UV unwrapping, texturing, raster graphics editing, rigging and skinning, fluid and smoke simulation, particle simulation, soft body simulation, sculpting, animating, match moving, camera tracking, rendering, video editing and compositing. Alongside the modeling features it also has an integrated game engine.
+
+Contents
+
+    1 History
+        1.1 Suzanne
+        1.2 Clones
+    2 Features
+        2.1 User interface
+        2.2 Hardware requirements
+        2.3 File format
+        2.4 Video Editing
+        2.5 Web Export
+    3 Development
+    4 Support
+    5 Use in the media industry
+    6 Open projects
+        6.1 Elephants Dream (Open Movie Project: Orange)
+        6.2 Big Buck Bunny (Open Movie Project: Peach)
+        6.3 Yo Frankie! (Open Game Project: Apricot)
+        6.4 Sintel (Open Movie Project: Durian)
+        6.5 Tears of Steel (Open Movie Project: Mango)
+        6.6 Cosmos Laundromat (Open Movie Project: Gooseberry)
+    7 See also
+    8 References
+    9 Further reading
+    10 External links
+
+History
+The desktop scene in version 2.63
+
+The Dutch animation studio Neo Geo and Not a Number Technologies (NaN) developed Blender as an in-house application, with the primary author being Ton Roosendaal. The name Blender was inspired by a song by Yello, from the album Baby.[4]
+
+Ton Roosendaal founded NaN in June 1998 to further develop and distribute the program. They initially distributed the program as shareware until NaN went bankrupt in 2002.
+
+On July 18, 2002, in response to the bankruptcy Roosendaal started the "Free Blender" campaign, as an early crowdfunding precursor.[5][6] The campaign aimed for open-sourcing Blender for a one-time payment of €100,000 (US$100,670 at the time) collected from the community.[7] On September 7, 2002, it was announced that they had collected enough funds and would release the Blender source code. Today, Blender is free, open-source software and is—apart from the Blender Institute's two half-time and two full-time employees—developed by the community.[8]
+
+The Blender Foundation initially reserved the right to use dual licensing, so that, in addition to GPL, Blender would have been available also under the Blender License that did not require disclosing source code but required payments to the Blender Foundation. However, they never exercised this option and suspended it indefinitely in 2005.[9] Currently, Blender is solely available under GNU GPL.
+
+The following program developed in each version:
+Version 	Release[10][11] 	Notes and key changes
+2.03 	around 2002 	Handbook The official Blender 2.0 guide.
+2.26 	August 20, 2003 	First ever free version.
+2.30 	November 22, 2003 	New GUI; edits are now revertible.
+2.32 	February 3, 2004 	Ray tracing in internal renderer; support for YafaRay.
+2.34 	August 5, 2004 	LSCM-UV-Unwrapping, object-particle interaction.
+2.37 	May 31, 2005 	Simulation of elastic surfaces; improved subdivision surface.
+2.40 	December 22, 2005 	Greatly improved system and character animations (with a non-linear editing tool), and added fluid and hair simulator. New functionality was based on Google Summer of Code 2005.[12]
+2.41 	January 25, 2006 	Improvements of the game engine (programmable vertex and pixel shaders, using Blender materials, split-screen mode, improvements to the physics engine), improved UV mapping, recording of the Python scripts for sculpture or sculpture works with the help of grid or mesh (mesh sculpting) and set-chaining models.
+2.42 	July 14, 2006 	The film Elephants Dream resulted in high developement as a necessity. In particular the Node-System (Material- and Compositor) has been implemented.
+2.43 	February 16, 2007 	Sculpt-Modeling as a result of Google Summer of Code 2006
+2.46 	May 19, 2008 	With the production of Big Buck Bunny Blender set to produce grass quickly and efficiently.[13]
+2.48 	October 14, 2008 	Due to development of Yo Frankie!, the game engine was improved substantially.[14]
+2.49 	June 13, 2009 	First official stable release 2.5. New window and file manager, new interface, new Python API, and new animation system.[15]
+2.57 	April 13, 2011 	First official stable release of 2.5er branch: new interface, new window manager and rewritten event — and tool — file processing system, new animation system (each setting can be animated now), and new Python API.[16]
+2.58 	June 22, 2011 	New features, and over 200 fixed bugs!
+2.58a 	July 4, 2011 	Some bug fixes, along with small extensions in GUI and Python interface[17]
+2.59 	August 13, 2011 	3D mouse support, more bug fixes
+2.60 	October 19, 2011 	Developer branches integrated into main developer branch: among other things, B-mesh, a new rendering/shading system, NURBS, to name a few, directly from Google Summer of Code
+2.61 	December 14, 2011 	Render-Engine Cycles, Motion Tracking, Dynamic Paint, Ocean Simulator
+2.62 	February 16, 2012 	Motion tracking improvement, further expansion of UV tools, cycles render engine, and Remesh modifier, plus exactly 205 bug fixes
+2.63 	April 27, 2012 	Bug fixes, B-mesh project: completely new mesh system with n-corners, plus new tools: dissolve, inset, bridge, vertex slide, vertex connect, and bevel
+Suzanne
+Suzanne
+
+In January–February 2002 it was clear that NaN could not survive and would close the doors in March. Nevertheless, they put out one more release, 2.25. As a sort-of easter egg, a last personal tag, the artists and developers decided to add a 3D model of a chimpanzee head. It was created by Willem-Paul van Overbruggen (SLiD3), who named it Suzanne after the orangutan in the Kevin Smith film Jay and Silent Bob Strike Back.
+
+Suzanne is Blender's alternative to more common test models such as the Utah Teapot and the Stanford Bunny. A low-polygon model with only 500 faces, Suzanne is often used as a quick and easy way to test material, animation, rigs, texture, and lighting setups and is also frequently used in joke images.[citation needed] Suzanne is still included in Blender. The largest Blender contest gives out an award called the Suzanne Award.
+Clones
+
+Due to Blender's open source nature, other programs have tried to take advantage of its success by repackaging and selling cosmetically-modified versions of it. Examples include IllusionMage, 3DMofun and Fluid Designer.[18]
+Features
+Steps of forensic facial reconstruction of a mummy made on Blender by the Brazilian 3D designer Cícero Moraes.
+
+Official releases of Blender for Microsoft Windows, Mac OS X, and Linux,[19] as well as a port for FreeBSD,[20] are available in both 32-bit and 64-bit versions. Though it is often distributed without extensive example scenes found in some other programs,[21] the software contains features that are characteristic of high-end 3D software. Among its capabilities are:
+
+    Support for a variety of geometric primitives, including polygon meshes, fast subdivision surface modeling, Bezier curves, NURBS surfaces, metaballs, multi-res digital sculpting (including dynamic topology, maps baking, remeshing, resymetrize, decimation..), outline font, and a new n-gon modeling system called B-mesh.
+    Internal render engine with scanline ray tracing, indirect lighting, and ambient occlusion that can export in a wide variety of formats.
+    A pathtracer render engine called Cycles, which can take advantage of the GPU for rendering. Cycles supports the Open Shading Language since Blender 2.65.[22]
+    Integration with a number of external render engines through plugins.
+    Keyframed animation tools including inverse kinematics, armature (skeletal), hook, curve and lattice-based deformations, shape keys (morph target animation), non-linear animation, constraints, and vertex weighting.
+    Simulation tools for Soft body dynamics including mesh collision detection, LBM fluid dynamics, smoke simulation, Bullet rigid body dynamics, ocean generator with waves.
+    A particle system that includes support for particle-based hair.
+    Modifiers to apply non-destructive effects.
+    Python scripting for tool creation and prototyping, game logic, importing and/or exporting from other formats, task automation and custom tools.
+    Basic non-linear video/audio editing.
+    The Blender Game Engine, a sub-project, offers interactivity features such as collision detection, dynamics engine, and programmable logic. It also allows the creation of stand-alone, real-time applications ranging from architectural visualization to video game construction.
+    A fully integrated node-based compositor within the rendering pipeline accelerated with OpenCL.
+    Procedural and node-based textures, as well as texture painting, projective painting, vertex painting, weight painting and dynamic painting.
+    Realtime control during physics simulation and rendering.
+    Camera and object tracking.
+
+    Using the node editor to create anisotropic metallic materials
+
+    A 3D rendering with ray tracing and ambient occlusion using Blender and YafaRay
+
+    Rendering of a house
+
+    The main character from the Blender Sintel open film
+    File:Fluid simulation blender.oggPlay media
+
+    A simple fluid simulation done with Blender
+
+User interface
+Blender's user interface underwent a significant update during the 2.5x series
+
+Blender's user interface incorporates the following concepts:
+
+Editing modes
+    The two primary modes of work are Object Mode and Edit Mode, which are toggled with the Tab key. Object mode is used to manipulate individual objects as a unit, while Edit mode is used to manipulate the actual object data. For example, Object Mode can be used to move, scale, and rotate entire polygon meshes, and Edit Mode can be used to manipulate the individual vertices of a single mesh. There are also several other modes, such as Vertex Paint, Weight Paint, and Sculpt Mode.
+
+Hotkey usage
+    Most of the commands are accessible via hotkeys. There are also comprehensive GUI menus.
+
+Numeric input
+    Numeric buttons can be "dragged" to change their value directly without the need to aim at a particular widget, as well as being set using the keyboard. Both sliders and number buttons can be constrained to various step sizes with modifiers like the Ctrl and Shift keys. Python expressions can also be typed directly into number entry fields, allowing mathematical expressions to specify values.
+
+Workspace management
+    The Blender GUI builds its own tiled (non-overlapping) windowing system on top of one or multiple windows provided by the underlying platform. One platform window (often sized to fill the screen) is divided into sections and subsections that can be of any type of Blender's views or window-types. The user can define multiple layouts of such Blender windows, called screens, and switch quickly between them by selecting from a menu or with keyboard shortcuts. Each window-type's own GUI elements can be controlled with the same tools that manipulate 3D view. For example, one can zoom in and out of GUI-buttons using similar controls one zooms in and out in the 3D viewport. The GUI viewport and screen layout is fully user-customizable. It is possible to set up the interface for specific tasks such as video editing or UV mapping or texturing by hiding features not used for the task.[23]
+
+Hardware requirements
+Blender hardware requirements[24] Hardware 	Minimum 	Recommended 	Production-standard
+Processor 	32-bit dual core 2 GHz CPU with SSE2 support 	64-bit quad core CPU 	64-bit eight core CPU
+Memory 	2 GB RAM 	8 GB 	16 GB
+Graphics card 	OpenGL card with 256 MB video RAM 	OpenGL card with 1 GB video RAM (CUDA or OpenCL for GPU rendering) 	Dual OpenGL cards with 3 GB RAM, (i.e. FirePro 3D or Nvidia Quadro)
+Display 	1280×768 pixels, 24-bit color 	1920×1080 pixels, 24-bit color 	Dual 1920×1080 pixels, 24-bit color
+Input 	mouse or trackpad 	Three-button mouse 	Three-button mouse and a graphics tablet
+File format
+
+Blender features an internal file system that can pack multiple scenes into a single file (called a ".blend" file).
+
+    All of Blender's ".blend" files are forward, backward, and cross-platform compatible with other versions of Blender, with the following exceptions:
+        Loading animations stored in post-2.5 files in Blender pre-2.5. This is due to the reworked animation subsystem introduced in Blender 2.5 being inherently incompatible with older versions.
+        Loading meshes stored in post 2.63. This is due to the introduction of BMesh, a more versatile/featureful mesh format.
+    All scenes, objects, materials, textures, sounds, images, post-production effects for an entire animation can be stored in a single ".blend" file. Data loaded from external sources, such as images and sounds, can also be stored externally and referenced through either an absolute or relative pathname. Likewise, ".blend" files themselves can also be used as libraries of Blender assets.
+    Interface configurations are retained in the ".blend" files.
+
+A wide variety of import/export scripts that extend Blender capabilities (accessing the object data via an internal API) make it possible to inter-operate with other 3D tools.
+
+Blender organizes data as various kinds of "data blocks", such as Objects, Meshes, Lamps, Scenes, Materials, Images and so on. An object in Blender consists of multiple data blocks – for example, what the user would describe as a polygon mesh consists of at least an Object and a Mesh data block, and usually also a Material and many more, linked together. This allows various data blocks to refer to each other. There may be, for example, multiple Objects that refer to the same Mesh, and making subsequent editing of the shared mesh result in shape changes in all Objects using this Mesh. Objects, meshes, materials, textures etc. can also be linked to from other .blend files, which is what allows the use of .blend files as reusable resource libraries.
+Video Editing
+Video Editor (VSE)
+
+Blender features a fully functional, production ready Non-Linear video editor or VSE for short. Blender's VSE has many features including effects like Gaussian Blur, color grading, Fade and Wipe transitions, and other video transformations.
+Web Export
+
+Blend4Web, an open source WebGL framework, can be used to convert whole Blender scenes with graphics, animation, sound and physics to work in standard web browsers. Export can be performed with a single click, even as a standalone web page.[25]
+Development
+Game engine GLSL materials
+
+Since the opening of the source, Blender has experienced significant refactoring of the initial codebase and major additions to its feature set.
+
+Improvements include an animation system refresh;[26] a stack-based modifier system;[27] an updated particle system[28] (which can also be used to simulate hair and fur); fluid dynamics; soft-body dynamics; GLSL shaders support[29] in the game engine; advanced UV unwrapping;[30] a fully recoded render pipeline, allowing separate render passes and "render to texture"; node-based material editing and compositing; and projection painting.[31]
+
+Part of these developments were fostered by Google's Summer of Code program, in which the Blender Foundation has participated since 2005.
+Support
+
+Blender is extensively documented on its website,[32] with the rest of the support provided via community tutorials and discussion forums on the Internet. Professional support, provided by the Blender Network, contains support and social services for Blender Professionals. Additionally, YouTube is known to have a great many video tutorials available for either Blender amateurs or professionals at no cost.
+Use in the media industry
+
+Blender started out as an inhouse tool for a Dutch commercial animation company NeoGeo.[33] Blender has been used for television commercials in several parts of the world including Australia,[34] Iceland,[35] Brazil,[36][37] Russia[38] and Sweden.[39]
+
+Blender is used by NASA for publicly available 3D models. Many 3D models on NASAs 3D resources page are in a native .blend format.[40]
+
+The first large professional project that used Blender was Spider-Man 2, where it was primarily used to create animatics and pre-visualizations for the storyboard department.
+
+        As an animatic artist working in the storyboard department of Spider-Man 2, I used Blender‍ '​s 3D modeling and character animation tools to enhance the storyboards, re-creating sets and props, and putting into motion action and camera moves in 3D space to help make Sam Raimi‍ '​s vision as clear to other departments as possible.[41] – Anthony Zierhut,[42] Animatic Artist, Los Angeles.
+
+The French-language film Friday or Another Day (Vendredi ou un autre jour) was the first 35 mm feature film to use Blender for all the special effects, made on Linux workstations.[43] It won a prize at the Locarno International Film Festival. The special effects were by Digital Graphics[44] of Belgium.
+
+Blender has also been used for shows on the History Channel, alongside many other professional 3D graphics programs.[45]
+
+Tomm Moore's The Secret of Kells, which was partly produced in Blender by the Belgian studio Digital Graphics, has been nominated for an Oscar in the category "Best Animated Feature Film".[46]
+
+Plumíferos, a commercial animated feature film created entirely in Blender,[47] was premiered in February 2010 in Argentina. Its main characters are anthropomorphic talking animals.
+
+Special effects for episode 6 of Red Dwarf season X were confirmed being created using Blender by half of Gecko Animation, Ben Simonds. The company responsible for the special effects, Gecko Animation, uses Blender for multiple projects, including Red Dwarf.[48] The episode screened in 2012.[49][50]
+Open projects
+Big Buck Bunny poster
+Sintel promotional poster
+Tears of Steel promotional poster
+
+Every 1–2 years the Blender Foundation announces a new creative project to help drive innovation in Blender.
+Elephants Dream (Open Movie Project: Orange)
+Main article: Elephants Dream
+
+In September 2005, some of the most notable Blender artists and developers began working on a short film using primarily free software, in an initiative known as the Orange Movie Project hosted by the Netherlands Media Art Institute (NIMk). The resulting film, Elephants Dream, premiered on March 24, 2006. In response to the success of Elephants Dream, the Blender Foundation founded the Blender Institute to do additional projects with two announced projects: Big Buck Bunny, also known as "Project Peach" (a 'furry and funny' short open animated film project) and Yo Frankie, also known as Project Apricot (an open game in collaboration with CrystalSpace that reused some of the assets created during Project Peach). This has later made its way to Nintendo 3DS's Nintendo Video between the years 2012 and 2013.
+Big Buck Bunny (Open Movie Project: Peach)
+Main article: Big Buck Bunny
+
+On October 1, 2007, a new team started working on a second open project, "Peach", for the production of the short movie Big Buck Bunny. This time, however, the creative concept was totally different. Instead of the deep and mystical style of Elephants Dream, things are more "funny and furry" according to the official site.[51] The movie had its premiere on April 10, 2008.
+Yo Frankie! (Open Game Project: Apricot)
+Main article: Yo Frankie!
+
+"Apricot" is a project for production of a game based on the universe and characters of the Peach movie (Big Buck Bunny) using free software. The game is titled Yo Frankie. The project started February 1, 2008, and development was completed at the end of July 2008. A finalized product was expected at the end of August; however, the release was delayed. The game was released on December 9, 2008, under either the GNU GPL or LGPL, with all content being licensed under Creative Commons Attribution 3.0.[52]
+Sintel (Open Movie Project: Durian)
+Main article: Sintel
+
+The Blender Foundation's Project Durian[53] (in keeping with the tradition of fruits as code names) was this time chosen to make a fantasy action epic of about twelve minutes in length,[54] starring a female teenager and a young dragon as the main characters. The film premiered online on September 30, 2010.[55] A game based on Sintel was officially announced on Blenderartists.org on May 12, 2010.[56][57]
+
+Many of the new features integrated into Blender 2.5 and beyond were a direct result of Project Durian.
+Tears of Steel (Open Movie Project: Mango)
+Main article: Tears of Steel
+Derek de Lint in a scene from Tears of Steel
+
+On October 2, 2011, the fourth open movie project, codenamed "Mango", was announced by the Blender Foundation.[58][59] A team of artists assembled using an open call of community participation. It is the first Blender open movie to use live action as well as CG.
+
+Filming for Mango started on May 7, 2012, and the movie was released on September 26, 2012. As with the previous films, all footage, scenes and models were made available under a free content compliant Creative Commons license.[60][61]
+
+According the film's press release, "The film's premise is about a group of warriors and scientists, who gather at the 'Oude Kerk' in Amsterdam to stage a crucial event from the past, in a desperate attempt to rescue the world from destructive robots."[62]
+Cosmos Laundromat (Open Movie Project: Gooseberry)
+
+On January 10, 2011, Ton Roosendaal announced that the fifth open movie project would be codenamed "Gooseberry" and that its goal would be to produce a feature-length animated film. He speculated that production would begin sometime between 2012 and 2014.[63] The film is to be written and produced by a coalition of international animation studios. The studio lineup was announced on January 28, 2014,[64] and production began soon thereafter. As of March 2014, a moodboard has been constructed[65] and development goals have been set.
+See also
+Portal icon 	Free software portal
+
+    Noesis (software):[66] an open-source tool that can import/export between many formats (no editing though)
+    Open 3D Model Viewer:[67] another (yet less advanced) open-source tool that can import/export between many formats
+
+References
+
+"Blender 2.75". blender.org. July 1, 2015. Retrieved July 2, 2015.
+"Blender 2.74". blender.org. March 31, 2015. Retrieved April 1, 2015.
+"License - blender.org". Retrieved May 17, 2014.
+Kassenaar, Joeri (May 21, 2005). "Brief history of the Blender logo". Retrieved January 18, 2007.[dead link]
+Blender Foundation Launches Campaign to Open Blender Source on linuxtoday (Jul 22, 2002)
+'Free Blender Fund' campaign archived 2002
+Membership People can subscribe to become Foundation Member. Members who subscribe during the campaign period, get additional benefits for their support. During campaign: - Costs: minimum one time fee of EUR 50 (or USD 50) (archived 2002)
+"Blender.org history". Amsterdam. June 2008.
+Roosendaal, Ton (June 2005). "Blender License". Retrieved January 19, 2007.
+Index of /source/ (englisch) – Seite bei blender.org; Stand: 13. Oktober 2010
+Blender Dokumentation: Die Geschichte von Blender – Kapitel bei Wikibooks, vom 5. September 2009
+Blender 2.40 (englisch) – Seite bei blender.org; Stand: 23. Dezember 2005
+3D-Software Blender 2.46 zum Download freigegeben – Artikel bei Heise online, vom 20. Mai 2008
+Blender 2.48 (englisch) – Seite bei blender.org; Stand: 25. Dezember 2008
+Blender 2.49 (englisch) – Seite bei blender.org; Stand: 21. Juni 2009
+Blender 2.57[dead link] (englisch) – Mitteilung auf der offiziellen Website, vom 13. April 2011
+blenderfoundation (2011-07-09). "Blender 2.58a update log" (in englisch). blender.org. Retrieved 2011-07-10.
+"Re-branding Blender". blender.org. Retrieved March 11, 2014.
+"Download - blender.org - Home of the Blender project - Free and Open 3D Creation Software". Blender Foundation. Retrieved July 30, 2014.
+"FreeBSD Ports: Graphics". The FreeBSD Project. July 27, 2014. Retrieved July 30, 2014.
+"trueSpace 7.6 specifications". Caligari Corporation. 2008. Retrieved June 6, 2011.
+"Cycles support OpenSL shading". blender.org. Retrieved January 26, 2013.
+"Using Blender with multiple monitors". Blenderguru.com. Retrieved 2012-07-06.
+"System Requirements". blender.org. Retrieved October 7, 2013.
+"Blend4Web Official Site - About". Blend4Web.com. Retrieved 2015-06-22.
+"Blender Animation system refresh project". Wiki.blender.org. Retrieved 2012-07-06.
+"Modifiers". Wikiblender.org. Retrieved 2012-07-06.
+"New Particle options and Guides". Blender.org. Retrieved 2012-07-06.
+"GLSL Pixel and Vertex shaders". Blender.org. Retrieved 2012-07-06.
+"Subsurf UV Mapping". Blender.org. Retrieved 2012-07-06.
+"Dev:Ref/Release Notes/2.49/Projection Paint – BlenderWiki". wiki.blender.org. June 3, 2009. Retrieved October 22, 2009.
+https://wiki.blender.org
+"History". blender.org. 2002-10-13. Retrieved 2012-07-06.
+"Blender in TV Commercials". Studiorola.com. 2009-09-26. Retrieved 2012-07-06.
+"Midstraeti Showreel on the Blender Foundation's official YouTube channel". Youtube.com. 2010-11-02. Retrieved 2012-07-06.
+"New Fiat campaign in Brazil using Blender 3D". BlenderNation. Retrieved July 25, 2010.
+"Brasilian TV Commercial made with Blender". BlenderNation. Retrieved July 25, 2010.
+"Russian Soda Commercial by ARt DDs". Blendernation.com. 2010-08-25. Retrieved 2012-07-06.
+"Apoteksgruppen – ELW TV Commercial made with Blender". Vimeo.com. 2011-03-22. Retrieved 2012-07-06.
+"nasa.gov".
+"Testimonials" (Wayback Machine). Archived from the original on February 21, 2007.
+"Anthonyzierhut.com". Anthonyzierhut.com. Retrieved 2012-07-06.
+"blender". Users.skynet.be. Retrieved October 22, 2009.
+"Digitalgraphics.be". Digitalgraphics.be. Retrieved 2012-07-06.
+"Blender on the History Channel at BlenderNation". Blendernation.com. Retrieved October 22, 2009.
+"The Secret of Kells’ nominated for an Oscar!". blendernation.com. 2010-02-04. Archived from the original on 2010-06-18.
+"Blender Movie Project: Plumíferos". March 8, 2006. Retrieved February 4, 2007.
+"Gecko Animation: Smegging Spaceshipes". Gecko Animation.
+"Ben Simonds Portfolio". Ben Simonds.
+"BlenderNation News article". BlenderNation.
+"Peach.blender.org". Peach.blender.org. 2008-10-03. Retrieved 2012-07-06.
+"Yo Frankie! – About". Apricot Open Game. Blender Foundation. Retrieved August 18, 2008.
+"Durian.blender.org". Durian.blender.org. Retrieved 2012-07-06.
+"How long is the movie?". Durian.blender.org. 2010-04-15. Retrieved 2012-07-06.
+"Sintel Official Premiere". Durian.blender.org. 2010-08-16. Retrieved 2012-07-06.
+"Sintel The Game announcement". Blenderartists.org. Retrieved 2012-07-06.
+"Sintel The Game website". Sintelgame.org. Retrieved 2012-07-06.
+"Project Mango kick-off | BlenderNation". BlenderNation. October 2, 2011. Retrieved November 28, 2011.
+Roosendaal, Ton (October 1, 2011). "Project Mango Kick-off | Mango". Blender Foundation. Retrieved November 28, 2011.
+"Tears of Steel". Blender Foundation. September 26, 2012. Retrieved September 26, 2012.
+Roosendaal, Ton (October 1, 2011). "Project Mango Kick-off | Mango". Blender Foundation. Retrieved November 28, 2011.
+Roosendaal, Ton (September 24, 2012). "Press Release" (PDF). Mango Blog. Retrieved September 26, 2012.
+"Project Gooseberry announced". Blender Nation. January 10, 2011. Retrieved 7 March 2014.
+"Gooseberry Studio lineup". January 28, 2014. Retrieved 7 March 2014.
+Moodboard » Cosmos Laundromat - The Gooseberry Open Movie Project
+Noesis
+
+    Open 3D Model viewer
+
+Further reading
+
+    Van Gumster, Jason (2009). Blender For Dummies. Indianapolis, Indiana: Wiley Publishing, Inc. p. 408. ISBN 978-0-470-40018-0.
+    "Blender 3D Design, Spring 2008". Tufts OpenCourseWare. Tufts University. 2008. Retrieved July 23, 2011.[dead link]
+    "Release Logs". Blender.org. Blender Foundation. Retrieved July 23, 2011.
+
+External links
+	Wikibooks has a book on the topic of: Blender 3D
+	Wikimedia Commons has media related to Blender (software).
+
+    Official website
+    Blender Wiki
+    Blender Stack Exchange (Questions & Answers)
+    Blender Artists Community
+    BlenderNation: Blender news site
+    Blender at DMOZ
+    BlenderArt Magazine: A bi-monthly Blender magazine for Blender learners
+    Blender NPR: Dedicated to Stylize and Non-Photorealistic Rendering
+
+[show]
+
+    v t e
+
+Blender Foundation
+[show]
+
+    v t e
+
+3D computer graphics software
+[show]
+
+    v t e
+
+Digital compositing software
+Motion graphics & animation software
+
+    v t e
+
+	2D 	3D
+Open-source
+
+    Ajax Animator Tupi Pencil2D SWFTools Synfig
+
+
+
+    Art of Illusion Blender K-3D OpenFX Seamless3d Toonloop
+
+Closed-source 	Freeware
+
+    Pivot Animator
+
+
+
+    Clara.io, DAZ Studio
+
+Commercial
+
+    Adobe After Effects Adobe Flash Professional Anime Studio Antics 2-D Animation Apple iAd Producer Autodesk Animator Cacani DigiCel FlipBook DrawPlus Elastic Reality Express Animator Fantavision Gryphon Software Morph Mediator Motion ParticleIllusion RETAS SWiSH Max Toon Boom Toonz Toufee TVPaint
+
+
+
+    Autodesk 3ds Max Autodesk Maya Autodesk MotionBuilder Autodesk Softimage Bryce Carrara Cinema 4D Dynamation Houdini LightWave 3D MASSIVE Messiah Moviestorm Shark 3D Softimage 3D Strata 3D Swift 3D
