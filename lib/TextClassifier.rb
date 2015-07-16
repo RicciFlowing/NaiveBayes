@@ -1,13 +1,14 @@
 require_relative 'TrainingExamples.rb'
 
 class TextClassifier
-  def initialize(path, training_examples_path = 'training/')
+  def initialize( training_examples_path = 'training/')
     @examples = TrainingExamples.new(training_examples_path)
-    @text = File.read(path)
+
   end
 
 
-  def classify()
+  def classify(path)
+    @text = File.read(path)
     words = @text.split(/\W+/)
     words = words.slice(0,100) # Use only the first 100 words for classification
 

@@ -3,16 +3,8 @@ require 'benchmark'
 
 Benchmark.bm do |bm|
   bm.report {
-              blender_release = TextClassifier.new("test_texts/blender_2_75a_release_notes")
-              blender_release.classify()
-            }
-  bm.report {
-              senegal = TextClassifier.new("test_texts/senegal_on_wikipedia")
-              senegal.classify();
+              classifier = TextClassifier.new()
+              classifier.classify("test_texts/blender_2_75a_release_notes")
+              classifier.classify("test_texts/senegal_on_wikipedia")
             }
 end
-
-
-puts Benchmark.measure {
-
-}
