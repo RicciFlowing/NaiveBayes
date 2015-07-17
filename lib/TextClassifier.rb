@@ -3,7 +3,6 @@ require_relative 'TrainingExamples.rb'
 class TextClassifier
   def initialize( training_examples_path = 'training/')
     @examples = TrainingExamples.new(training_examples_path)
-
   end
 
 

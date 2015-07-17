@@ -54,12 +54,15 @@ class TrainingExamples
   end
 
   private
+  
     def load_examples_for(rating)
       texts = Array.new
+
       Dir.foreach(@path + rating) do |example_file|
         next if example_file == '.' or example_file == '..'
           texts << File.read(@path  +rating +'/' + example_file)
         end
+
       if(rating ==="positive")
         @positive_texts = texts
       else
