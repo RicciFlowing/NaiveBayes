@@ -19,16 +19,19 @@ In the 'positive' directory you put examples for interesting texts. Same for the
 
 Next up: Requiring the lib/TextClassifier.rb file :
 
-```require_relative 'lib/TextClassifier.rb'
-
+```ruby
+require_relative 'lib/TextClassifier.rb'
+```
 Now instantiate a new TextClassifier:
 
-```classifier = TextClassifier.new()
-
+```ruby
+classifier = TextClassifier.new()
+```
 Now you can start classifying texts (be sure to use a path to a text not a text itself as argument for the classify method):
 
-```classifier.classify("path/to/text")
-
+```ruby
+classifier.classify("path/to/text")
+```
 Classify will return a boolean true for interesting (and a false for not interesting).
 
 Have fun using it!
