@@ -16,8 +16,10 @@ class TextClassifier
 
      if pIsInteristing > pIsNotInteristing
        puts "Interisting"
+       return true
      else
        puts "Not interisting"
+       return false
      end
   end
 
