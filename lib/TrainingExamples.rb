@@ -54,10 +54,10 @@ class TrainingExamples
   end
 
   private
-  
+
     def load_examples_for(rating)
       texts = Array.new
-
+      begin
       Dir.foreach(@path + rating) do |example_file|
         next if example_file == '.' or example_file == '..'
           texts << File.read(@path  +rating +'/' + example_file)
@@ -68,6 +68,9 @@ class TrainingExamples
       else
         @negative_texts = texts
       end
+    rescue
+      puts "You tried to load the training examples from #{@path + rating}. This directory does not exist. Please spellcheck the path."
+    end
     end
 
 end

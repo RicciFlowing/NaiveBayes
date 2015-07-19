@@ -7,7 +7,13 @@ class TextClassifier
 
 
   def classify(path)
+    begin
     @text = File.read(path)
+    rescue
+      puts "You tried to load the file #{path} for classification. This file was not found.
+       Please make sure, that the path is correctly spelled and that you have reading-access to the path given"
+      return
+    end
     words = @text.split(/\W+/)
     words = words.slice(0,100) # Use only the first 100 words for classification
 
