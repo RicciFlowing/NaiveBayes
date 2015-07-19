@@ -5,10 +5,13 @@ class TrainingExamples
     @negative_texts = Array.new
     @positive_words = Array.new
     @negative_words = Array.new
-
+    begin
     load_examples_for('positive')
     load_examples_for('negative')
-
+    rescue
+      puts "You tried to load the training examples from #{@path}. This directory does not exist. Please spellcheck the path."
+      abort
+    end
     @positive_texts.each do |text|
       @positive_words += text.split(/\W+/)
     end
@@ -16,7 +19,6 @@ class TrainingExamples
     @negative_texts.each do |text|
       @negative_words += text.split(/\W+/)
     end
-
   end
 
   def p_apriori(arg)
@@ -57,7 +59,6 @@ class TrainingExamples
 
     def load_examples_for(rating)
       texts = Array.new
-      begin
       Dir.foreach(@path + rating) do |example_file|
         next if example_file == '.' or example_file == '..'
           texts << File.read(@path  +rating +'/' + example_file)
@@ -68,9 +69,6 @@ class TrainingExamples
       else
         @negative_texts = texts
       end
-    rescue
-      puts "You tried to load the training examples from #{@path + rating}. This directory does not exist. Please spellcheck the path."
-    end
     end
 
 end
