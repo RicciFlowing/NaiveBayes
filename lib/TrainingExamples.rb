@@ -9,7 +9,8 @@ class TrainingExamples
     load_examples_for('positive')
     load_examples_for('negative')
     rescue
-      puts "You tried to load the training examples from #{@path}. This directory does not exist. Please spellcheck the path."
+      puts "You tried to load the training examples from #{@path}. This directory does not exist or does not contain a 'positive' and 'negative' subdirectory.
+       Please spellcheck the path."
       abort
     end
     @positive_texts.each do |text|
@@ -24,8 +25,14 @@ class TrainingExamples
   def p_apriori(arg)
     case arg
     when 'I'
+      if @positive_texts.length === 0
+        puts "Failure: Empty trainings-data"
+      end
       return @positive_texts.length.to_f / (@positive_texts.length + @negative_texts.length)
     when '!I'
+      if @negative_texts.length === 0
+         puts "Failure: Empty trainings-data"
+      end
       return @negative_texts.length.to_f / (@positive_texts.length + @negative_texts.length)
     end
   end
