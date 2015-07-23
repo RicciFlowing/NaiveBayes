@@ -6,7 +6,7 @@ class TextClassifier
   end
 
 
-  def classify(path:"", text:"" )
+  def classify(path:"", text:"", silent_output: false)
     @text = String.new
 
     unless text.empty?
@@ -26,10 +26,18 @@ class TextClassifier
     pIsNotInteristing = calculateProbabilities(words, "!I")
 
      if pIsInteristing > pIsNotInteristing
-       puts "Interisting"
+       unless silent_output
+         puts "The text:"
+         puts "\t"+@text.slice(0,50)+"..."
+         puts "seems to be interisting"+ "\n\n"
+       end
        return true
      else
-       puts "Not interisting"
+       unless silent_output
+         puts "The text:"
+         puts "\t"+@text.slice(0,50)+"..."
+         puts "seems to be not interisting"+ "\n\n"
+       end
        return false
      end
   end
