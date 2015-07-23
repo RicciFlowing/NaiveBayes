@@ -27,10 +27,11 @@ Now instantiate a new TextClassifier:
 ```ruby
 classifier = TextClassifier.new()
 ```
-Now you can start classifying texts (be sure to use a path to a text not a text itself as argument for the classify method):
+Now you can start classifying texts:
 
 ```ruby
-classifier.classify("path/to/text")
+classifier.classify(path: "/path/to/file")
+classifier.classify(text: "Your text here")
 ```
 Classify will return a boolean true for interesting (and a false for not interesting).
 

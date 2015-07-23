@@ -6,14 +6,19 @@ class TextClassifier
   end
 
 
-  def classify(path)
-    begin
-    @text = File.read(path)
-    rescue
-      puts "You tried to load the file #{path} for classification. This file was not found.
-       Please make sure, that the path is correctly spelled and that you have reading-access to the path given"
-      return
+  def classify(path:"", text:"" )
+    @text = String.new
+
+    unless text.empty?
+      @text += text
     end
+    # If both path and text is given both will be concatenated
+    unless path.empty?
+      @text += loadText(path)
+    end
+
+    return if @text.empty?
+
     words = @text.split(/\W+/)
     words = words.slice(0,100) # Use only the first 100 words for classification
 
@@ -30,6 +35,15 @@ class TextClassifier
   end
 
   private
+    def loadText(path)
+      begin
+      loaded_text = File.read(path)
+      rescue
+        puts "You tried to load the file #{path} for classification. This file was not found.
+         Please make sure, that the path is correctly spelled and that you have reading-access to the path given"
+      end
+    end
+
     def calculateProbabilities(list_of_words, klass)
       p = @examples.p_apriori(klass)
       list_of_words.each do |word|
