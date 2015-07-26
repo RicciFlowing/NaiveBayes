@@ -1,4 +1,4 @@
-require_relative '../lib/TextClassifier.rb'
+require_relative '../../lib/TextClassifier.rb'
 require 'benchmark'
 
 Benchmark.bm do |bm|
