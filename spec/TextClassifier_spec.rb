@@ -9,7 +9,7 @@ describe NaiveBayes::TextClassifier do
     expect(classifier.classify(text: "France")).to be false
   end
 
-  it 'classifies a file' do
+  it 'classifies a file correctly' do
     expect(classifier.classify(path: "spec/training/blender.txt")).to be true
   end
 end
