@@ -22,7 +22,6 @@ Or install it yourself as:
 
 ## Usage
 
-# NaiveBayes
 A naive Bayes Textclassifier written in Ruby
 
 1. What does it do?
