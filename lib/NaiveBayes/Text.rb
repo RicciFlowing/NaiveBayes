@@ -3,9 +3,8 @@ class Text
   def initialize( path:"", text:"")
     @text = text
     # If both path and text is given both will be concatenated
-    unless path.empty?
-      @text += loadText(path)
-    end
+    @text += loadText(path) unless path.empty?
+    
     @words = @text.split(/\W+/)
   end
 

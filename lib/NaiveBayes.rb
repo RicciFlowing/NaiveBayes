@@ -4,36 +4,20 @@ require "NaiveBayes/Text"
 
 module NaiveBayes
   class TextClassifier
-    def initialize( text=Text.new(text:""), training_examples_path = 'training/')
+    def initialize( text=Text.new(text:""), examples = TrainingExamples.new('training/') )
       @text = text
-      @examples = TrainingExamples.new(training_examples_path)
+      @examples = examples
     end
 
 
-    def classify( silent_output: false)
-      words = @text.words
+    def classify()
+      pIsInteristing = calculateProbabilities(@text.words, "I")
+      pIsNotInteristing = calculateProbabilities(@text.words, "!I")
 
-      pIsInteristing = calculateProbabilities(words, "I")
-      pIsNotInteristing = calculateProbabilities(words, "!I")
-
-       if pIsInteristing > pIsNotInteristing
-         unless silent_output
-           puts "The text:"
-           puts "\t"+@text.sample+"..."
-           puts "seems to be interisting"+ "\n\n"
-         end
-         return true
-       else
-         unless silent_output
-           puts "The text:"
-           puts "\t"+@text.sample+"..."
-           puts "seems to be not interisting"+ "\n\n"
-         end
-         return false
-       end
+      return pIsInteristing > pIsNotInteristing
     end
 
-
+    private
       def calculateProbabilities(list_of_words, klass)
         p = @examples.p_apriori(klass)
         list_of_words.each do |word|
@@ -41,6 +25,21 @@ module NaiveBayes
         end
         return p
       end
+
+      def render_output
+        unless silent_output
+          puts "The text:"
+          puts "\t"+@text.sample+"..."
+          puts "seems to be interisting"+ "\n\n"
+        end
+        unless silent_output
+          puts "The text:"
+          puts "\t"+@text.sample+"..."
+          puts "seems to be not interisting"+ "\n\n"
+        end
+      end
+
+
   end
 
 end

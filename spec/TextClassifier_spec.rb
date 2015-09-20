@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe NaiveBayes::TextClassifier do
 
-  let(:classifier_blender){NaiveBayes::TextClassifier.new( Text.new(text: "Blender"), 'spec/training/')}
-  let(:classifier_france){NaiveBayes::TextClassifier.new( Text.new(text: "France"), 'spec/training/')}
-  let(:classifier_blender_file){NaiveBayes::TextClassifier.new( Text.new(path: "spec/training/blender.txt"), 'spec/training/')}
+  let(:classifier_blender){NaiveBayes::TextClassifier.new( Text.new(text: "Blender"), TrainingExamples.new('spec/training/'))}
+  let(:classifier_france){NaiveBayes::TextClassifier.new( Text.new(text: "France"), TrainingExamples.new('spec/training/'))}
+  let(:classifier_blender_file){NaiveBayes::TextClassifier.new( Text.new(path: "spec/training/blender.txt"), TrainingExamples.new('spec/training/'))}
 
   it 'classifies a text correctly' do
     expect(classifier_blender.classify()).to be true
