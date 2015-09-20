@@ -1,6 +1,6 @@
 class TrainingExamples
-  def initialize(path)
-    @path = path
+  def initialize(args)
+    @path = args[:path] || 'training/'
     @positive_texts = Array.new
     @negative_texts = Array.new
     @positive_words = Array.new

@@ -1,15 +1,21 @@
 class Text
   attr_reader :words
-  def initialize( path:"", text:"")
-    @text = text
+  def initialize( args  )
+    @text = args[:text] || ""
+    path  = args[:path]
+    @classifier = args[:classifier] || TextClassifier.new
     # If both path and text is given both will be concatenated
-    @text += loadText(path) unless path.empty?
-    
+    @text += loadText(path) if path
+
     @words = @text.split(/\W+/)
   end
 
   def sample
     @text.slice(0,50)
+  end
+
+  def classify
+    classifier.classify(words)
   end
 
   private
