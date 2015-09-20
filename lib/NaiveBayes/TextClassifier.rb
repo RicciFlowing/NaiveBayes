@@ -20,18 +20,4 @@ class TextClassifier
       return p
     end
 
-    def render_output
-      unless silent_output
-        puts "The text:"
-        puts "\t"+@text.sample+"..."
-        puts "seems to be interisting"+ "\n\n"
-      end
-      unless silent_output
-        puts "The text:"
-        puts "\t"+@text.sample+"..."
-        puts "seems to be not interisting"+ "\n\n"
-      end
-    end
-
-
 end

@@ -16,7 +16,11 @@ describe TrainingExamples do
     expect(examples.p("Lorem", "I")).to be >= 0
   end
 
-  xit 'p returns a decimal number less then one ' do
+  it 'p returns a decimal number equal greater then zero' do
+    expect(examples.p("Blender", "I")).to be > examples.p("Blender", "!I")
+  end
+
+  it 'p returns a decimal number less then one ' do
     expect(examples.p("Blender", "I")).to be < 1
   end
 

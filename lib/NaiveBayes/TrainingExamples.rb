@@ -1,81 +1,30 @@
 class TrainingExamples
   def initialize(args)
     @path = args[:path] || 'training/'
-    @positive_texts = Array.new
-    @negative_texts = Array.new
-    @positive_words = Array.new
-    @negative_words = Array.new
-    begin
-    load_examples_for('positive')
-    load_examples_for('negative')
-    rescue
-      puts "You tried to load the training examples from #{@path}. This directory does not exist or does not contain a 'positive' and 'negative' subdirectory.
-       Please spellcheck the path."
-      abort
-    end
-    @positive_texts.each do |text|
-      @positive_words += text.split(/\W+/)
-    end
-
-    @negative_texts.each do |text|
-      @negative_words += text.split(/\W+/)
-    end
+    @positive_examples = ExamplesGroup.new(@path+'positive/')
+    @negative_examples = ExamplesGroup.new(@path+'negative/')
   end
 
   def p_apriori(arg)
     case arg
     when 'I'
-      if @positive_texts.length === 0
-        puts "Failure: Empty trainings-data"
-      end
-      return @positive_texts.length.to_f / (@positive_texts.length + @negative_texts.length)
+      return @positive_examples.word_count.to_f / (@positive_examples.word_count + @negative_examples.word_count)
     when '!I'
-      if @negative_texts.length === 0
-         puts "Failure: Empty trainings-data"
-      end
-      return @negative_texts.length.to_f / (@positive_texts.length + @negative_texts.length)
+      return @negative_examples.word_count.to_f / (@positive_examples.word_count + @negative_examples.word_count)
     end
   end
 
   def p( word, klass)
     if klass=='I'
-      words  =  @positive_words
-      text_count = @positive_texts.length
+      probability = (@positive_examples.count(word).to_f / @positive_examples.word_count)
     else
-      words = @negative_words
-      text_count = @negative_texts.length
+      probability = (@negative_examples.count(word).to_f / @negative_examples.word_count)
     end
 
-    count = 0
-    words.each do |word_in_klass|
-      if word === word_in_klass
-        count += 1
-      end
-    end
-    probability = (count.to_f / text_count) + 0.01
-  end
-
-  def print
-    puts "Positiv:"
-    puts @positive_texts
-    puts "Negativ:"
-    puts @negative_texts
   end
 
   private
 
-    def load_examples_for(rating)
-      texts = Array.new
-      Dir.foreach(@path + rating) do |example_file|
-        next if example_file == '.' or example_file == '..'
-          texts << File.read(@path  +rating +'/' + example_file)
-        end
 
-      if(rating ==="positive")
-        @positive_texts = texts
-      else
-        @negative_texts = texts
-      end
-    end
 
 end
