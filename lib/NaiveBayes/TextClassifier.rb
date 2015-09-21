@@ -5,19 +5,9 @@ class TextClassifier
 
 
   def classify(words)
-    pIsInteristing = calculateProbabilities(words, "I")
-    pIsNotInteristing = calculateProbabilities(words, "!I")
+    probalities = @examples.get_propalities_for(words)
 
-    return pIsInteristing > pIsNotInteristing
+    return probalities.interesting > probalities.not_interesting
   end
-
-  private
-    def calculateProbabilities(list_of_words, klass)
-      p = @examples.p_apriori(klass)
-      list_of_words.each do |word|
-        p *= @examples.p(word,klass)
-      end
-      return p
-    end
 
 end

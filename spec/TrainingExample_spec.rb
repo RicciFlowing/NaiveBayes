@@ -4,24 +4,13 @@ describe TrainingExamples do
 
   let(:examples){TrainingExamples.new({path:'spec/training/'})}
 
-  it 'p_apriori returns a decimal number less then one and greater or equal then zero' do
-    expect(examples.p_apriori("I")).to be >= 0
-    expect(examples.p_apriori("I")).to be < 1
-    expect(examples.p_apriori("!I")).to be >= 0
-    expect(examples.p_apriori("!I")).to be < 1
+  describe 'get_propalities_for' do
+    it 'returns a PropabilityCollection with interesting and not_intersting between 0 and 1' do
+      expect(examples.get_propalities_for([]).interesting).to be_between(0,1).inclusive
+      expect(examples.get_propalities_for(["Blender", "Computer"]).interesting).to be_between(0,1).inclusive
+      expect(examples.get_propalities_for(["Blender", "Computer"]).not_interesting).to be_between(0,1).inclusive
+    end
   end
 
-  it 'p returns a decimal number equal greater then zero' do
-    expect(examples.p("Blender", "I")).to be > 0
-    expect(examples.p("Lorem", "I")).to be >= 0
-  end
-
-  it 'p returns a decimal number equal greater then zero' do
-    expect(examples.p("Blender", "I")).to be > examples.p("Blender", "!I")
-  end
-
-  it 'p returns a decimal number less then one ' do
-    expect(examples.p("Blender", "I")).to be < 1
-  end
 
 end
