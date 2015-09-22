@@ -13,7 +13,7 @@ class TrainingExamples
     @negative_examples = ExamplesGroup.new(@path+'negative/')
   end
 
-  def get_propalities_for(words)
+  def get_propabilities_for(words)
     calculateProbabilities(words)
   end
 

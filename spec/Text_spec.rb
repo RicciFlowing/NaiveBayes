@@ -14,4 +14,9 @@ describe Text do
     expect(empty_text.words).to eq []
   end
 
+  it 'loads a file correctly' do
+    text = Text.new({path:"spec/training/blender.txt", classifier:test_classifier })
+    expect(text.words).to eq ["Blender"]
+  end
+
 end

@@ -15,7 +15,7 @@ class Text
   end
 
   def classify
-    classifier.classify(words)
+    @classifier.classify(words)
   end
 
   private
