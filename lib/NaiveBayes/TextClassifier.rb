@@ -5,9 +5,9 @@ class TextClassifier
 
 
   def classify(words)
-    probalities = @examples.get_propabilities_for(words)
+    propabilities = @examples.get_propabilities_for(words)
 
-    return probalities.interesting > probalities.not_interesting
+    return propabilities.interesting > propabilities.not_interesting
   end
 
 end
