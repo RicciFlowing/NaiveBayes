@@ -4,7 +4,7 @@ require 'NaiveBayes'
 describe "Classification" do
 
   context "with text input" do
-    test_classifier = TextClassifier.new( TrainingExamples.new({path:'spec/training/'}))
+    test_classifier = TextClassifier.new( PropabilityCalculator.new({path:'spec/training/'}))
     let(:text1){ Text.new({text:"Blender", classifier:test_classifier } ) }
     let(:text2) { Text.new({text: "France", classifier:  test_classifier})}
 
@@ -15,7 +15,7 @@ describe "Classification" do
   end
 
   context "with file input" do
-    test_classifier = TextClassifier.new( TrainingExamples.new({path:'spec/training/'}))
+    test_classifier = TextClassifier.new( PropabilityCalculator.new({path:'spec/training/'}))
     let(:text){ Text.new({path:"spec/training/blender.txt", classifier:test_classifier } ) }
 
 

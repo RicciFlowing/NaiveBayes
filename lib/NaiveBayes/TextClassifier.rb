@@ -1,5 +1,5 @@
 class TextClassifier
-  def initialize( examples = TrainingExamples.new )
+  def initialize( examples = PropabilityCalculator.new )
     @examples = examples
   end
 

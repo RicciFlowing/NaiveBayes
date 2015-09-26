@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe TrainingExamples do
+describe PropabilityCalculator do
 
-  let(:examples){TrainingExamples.new({path:'spec/training/'})}
+  let(:examples){PropabilityCalculator.new({path:'spec/training/'})}
 
   describe 'get_propalities_for' do
     it 'returns a PropabilityCollection with interesting and not_intersting between 0 and 1' do

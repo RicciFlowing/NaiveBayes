@@ -6,7 +6,7 @@ class PropabilityCollection < Struct.new(:interesting, :not_interesting)
   end
 end
 
-class TrainingExamples
+class PropabilityCalculator
   def initialize(args)
     @path = args[:path] || 'training/'
     @positive_examples = ExamplesGroup.new(@path+'positive/')

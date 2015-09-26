@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'NaiveBayes'
 
 describe TextClassifier do
-  examples = TrainingExamples.new({path:'spec/training/'})
+  examples = PropabilityCalculator.new({path:'spec/training/'})
   let(:classifier){TextClassifier.new(examples )}
 
   it 'classifies a text correctly' do
