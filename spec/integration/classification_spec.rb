@@ -8,7 +8,7 @@ describe "Classification" do
     let(:text1){ Text.new({text:"Blender", classifier:test_classifier } ) }
     let(:text2) { Text.new({text: "France", classifier:  test_classifier})}
 
-    it 'classifies a text correctly' do
+    xit 'classifies a text correctly' do
       expect(text1.classify()).to be true
       expect(text2.classify()).to be false
     end
@@ -19,7 +19,7 @@ describe "Classification" do
     let(:text){ Text.new({path:"spec/training/blender.txt", classifier:test_classifier } ) }
 
 
-    it 'classifies a text correctly' do
+    xit 'classifies a text correctly' do
       expect(text.classify()).to be true
     end
   end

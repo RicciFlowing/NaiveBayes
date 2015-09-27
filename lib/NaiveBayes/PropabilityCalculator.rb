@@ -1,16 +1,7 @@
-class PropabilityCollection < Struct.new(:interesting, :not_interesting)
-
-  def *(probalities)
-    PropabilityCollection.new(self.interesting      * probalities.interesting,
-                              self.not_interesting  * probalities.not_interesting)
-  end
-end
-
 class PropabilityCalculator
   def initialize(args)
-    @path = args[:path] || 'training/'
-    @positive_examples = ExamplesGroup.new(@path+'positive/')
-    @negative_examples = ExamplesGroup.new(@path+'negative/')
+    @categories = args[:categories] || []
+    @propabilities = PropabilityCollection.new(@categories)
   end
 
   def get_propabilities_for(words)
@@ -20,24 +11,23 @@ class PropabilityCalculator
   private
 
     def calculateProbabilities(list_of_words)
-      probalities = p_apriori()
-      list_of_words.each do |word|
-        probalities = probalities * p(word)
+      categories.each do |category|
+        @propabilities.set(category: category, value: p_apriori(category))
       end
-      return probalities
+
+      list_of_words.each do |word|
+        categories.each do |category|
+          @propabilities.mulitply(category: category, factor: category.p(word) )
+        end
+      end
+
+      @probalities
     end
 
-    def p_apriori()
-      p_interesting     = @positive_examples.word_count.to_f / (@positive_examples.word_count + @negative_examples.word_count)
-      p_not_interesting = @negative_examples.word_count.to_f / (@positive_examples.word_count + @negative_examples.word_count)
-      probalities       = PropabilityCollection.new(p_interesting,p_not_interesting )
+    def p_apriori(category)
+      @categories.p_apriori(category)
     end
 
-    def p(word)
-      p_interesting     = (@positive_examples.count(word).to_f / @positive_examples.word_count)
-      p_not_interesting = (@negative_examples.count(word).to_f / @negative_examples.word_count)
-      probalities       =  PropabilityCollection.new(p_interesting,p_not_interesting)
-    end
 
 
 end
