@@ -3,8 +3,9 @@ require 'spec_helper'
 describe PropabilityCollection do
   let(:object_with_id){ double("objects_with_id", {id: 1})}
   let(:object_with_id2){ double("objects_with_id", {id: 2})}
-  let(:collection){PropabilityCollection.new(categories: [object_with_id,object_with_id2])}
-  let(:collection2){PropabilityCollection.new(categories: [object_with_id,object_with_id2])}
+  let(:categories){Categories.new(categories: [object_with_id,object_with_id2])}
+  let(:collection){PropabilityCollection.new(categories: categories) }
+  let(:collection2){PropabilityCollection.new(categories: categories) }
 
   describe "find" do
     it "returns a float between 0 and 1 " do

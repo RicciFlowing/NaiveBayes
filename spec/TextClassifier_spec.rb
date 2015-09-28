@@ -2,14 +2,22 @@ require 'spec_helper'
 require 'NaiveBayes'
 
 describe TextClassifier do
-  examples = PropabilityCalculator.new({path:'spec/training/'})
-  let(:classifier){TextClassifier.new(examples )}
+  let(:category_double){double("category_double", {:id => 1} ) }
+  let(:category_double2){double("category_double2", {:id => 2} ) }
+  let(:categories){  Categories.new({categories: [category_double, category_double2]})}
+  let(:propabilities){ PropabilityCollection.new(categories: categories)}
+  let(:calculator_double){ double("calculator")}
 
-  it 'classifies a text correctly' do
-    propabilities = double("propabilities", interesting: 0.5 ,not_interesting: 0.4 )
-    allow(examples).to(receive(:get_propabilities_for){propabilities})
+  let(:classifier){
+    TextClassifier.new( categories: categories,  calculator: calculator_double )
+    }
 
-    expect(classifier.classify(["France"])).to eq true
+  it 'gets the right category for a list of words' do
+    propabilities.set(category: category_double, value: 0.5)
+    propabilities.set(category: category_double2, value: 0.7)
+    allow(calculator_double).to(receive(:get_propabilities_for){propabilities})
+
+    expect(classifier.get_category_for(["France"]).id).to eq category_double2.id
   end
 
 end

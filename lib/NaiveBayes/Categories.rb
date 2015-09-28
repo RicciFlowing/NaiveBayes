@@ -2,7 +2,7 @@ class Categories
   include Enumerable
 
   def initialize(args)
-    @categories = args || []
+    @categories = args[:categories] || []
   end
 
   def p_apriori(category)

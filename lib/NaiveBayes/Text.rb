@@ -15,7 +15,7 @@ class Text
   end
 
   def classify
-    @classifier.classify(words)
+    @classifier.get_category_for(words)
   end
 
   private

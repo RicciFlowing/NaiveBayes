@@ -23,6 +23,11 @@ class PropabilityCollection
     @propabilities[category.id] *= factor
   end
 
+  def max
+    id = @propabilities.find_index(@propabilities.max)
+    @categories.find {|category| category.id == id}
+  end
+
   private
   def initialize_ids
     @ids =  @categories.map { |category| category.id }

@@ -1,5 +1,5 @@
 class Category
-  @id_counter = 1
+  @@id_counter = 1
 
   attr_reader :name
   attr_reader :id
@@ -7,8 +7,8 @@ class Category
   def initialize(args)
     @name = args[:name]
     @examples = args[:examples]
-    @id = @id_counter
-    @id_counter += 1
+    @id = @@id_counter
+    @@id_counter += 1
   end
 
   def p(word)
