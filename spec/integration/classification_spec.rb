@@ -5,9 +5,11 @@ describe 'Classification' do
   interesting = Category.new(
     name: interesting,
     examples: ExamplesGroup.new('spec/training/positive'))
+
   boring = Category.new(
     name: boring,
     examples: ExamplesGroup.new('spec/training/negative'))
+
   categories = Categories.new(categories: [interesting, boring])
   test_classifier = TextClassifier.new(categories: categories)
 

@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["RicciFlowing"]
   spec.email         = ["benjamin@mathe-sellin.de"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A Naivebayes text classifier"
+  spec.description   = "Sort texts based on expample texts in predefined categories"
+  spec.homepage      = "https://github.com/RicciFlowing/NaiveBayes"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
