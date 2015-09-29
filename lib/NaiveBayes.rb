@@ -6,6 +6,7 @@ require "NaiveBayes/TextClassifier"
 require "NaiveBayes/Text"
 require "NaiveBayes/Category"
 require "NaiveBayes/Categories"
+require "NaiveBayes/CategoriesFactory"
 
 module NaiveBayes
 

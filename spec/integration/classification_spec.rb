@@ -2,15 +2,10 @@ require 'spec_helper'
 require 'NaiveBayes'
 
 describe 'Classification' do
-  interesting = Category.new(
-    name: interesting,
-    examples: ExamplesGroup.new('spec/training/positive'))
+  categories_config = [{name: 'interesting', path: 'spec/training/positive'},
+                       {name: 'boring', path: 'spec/training/negative'}]
 
-  boring = Category.new(
-    name: boring,
-    examples: ExamplesGroup.new('spec/training/negative'))
-
-  categories = Categories.new(categories: [interesting, boring])
+  categories = CategoriesFactory.build(categories_config)
   test_classifier = TextClassifier.new(categories: categories)
 
   context 'with text input' do
@@ -18,8 +13,8 @@ describe 'Classification' do
     let(:text2) { Text.new(text: 'France', classifier:  test_classifier) }
 
     it 'classifies a text correctly' do
-      expect(text1.classify).to be interesting
-      expect(text2.classify).to be boring
+      expect(text1.classify.name).to eq 'interesting'
+      expect(text2.classify.name).to eq 'boring'
     end
   end
 
@@ -29,7 +24,7 @@ describe 'Classification' do
     end
 
     it 'classifies a text correctly' do
-      expect(text.classify).to be interesting
+      expect(text.classify.name).to eq 'interesting'
     end
   end
 end
