@@ -20,7 +20,11 @@ class PropabilityCollection
   def multiply(args)
     category = args[:category]
     factor = args[:factor]
-    @propabilities[category.id] *= factor
+    if category
+      @propabilities[category.id] *= factor
+    else
+      @propabilities.map! {|el| el*factor}
+    end
   end
 
   def max

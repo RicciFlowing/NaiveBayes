@@ -23,9 +23,9 @@ describe PropabilityCalculator do
   describe 'get_propalities_for' do
     it 'returns a PropabilityCollection with correct_values' do
       propabilities = calculator.get_propabilities_for(['Word'])
-
-      expect(propabilities.find(category_double)).to be_between(0.006, 0.007)
-      expect(propabilities.find(category_double2)).to be_between(0.009, 0.012)
+      expect(propabilities.sum).to be_between(0.999, 1.001)
+      expect(propabilities.find(category_double)).to be_between(0.399, 0.401)
+      expect(propabilities.find(category_double2)).to be_between(0.599, 0.601)
     end
   end
 end

@@ -28,6 +28,17 @@ describe PropabilityCollection do
 
       expect(collection.find(object_1)).to eq 0.25
     end
+
+    it 'if no category is given it mulitplies all values by the given factor' do
+      collection.set(category: object_1, value: 0.5)
+      collection.set(category: object_2, value: 0.2)
+
+      collection.multiply(factor: 0.5)
+
+      expect(collection.find(object_1)).to eq 0.25
+      expect(collection.find(object_2)).to eq 0.1
+    end
+
   end
 
   describe 'sum' do

@@ -21,6 +21,9 @@ class PropabilityCalculator
         end
       end
 
+      normalization_factor = 1.to_f / @propabilities.sum
+      @propabilities.multiply(factor: normalization_factor)
+
       @propabilities
     end
 
