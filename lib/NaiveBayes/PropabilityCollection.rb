@@ -28,6 +28,10 @@ class PropabilityCollection
     @categories.find {|category| category.id == id}
   end
 
+  def sum
+    @propabilities.reduce(:+)
+  end
+
   private
   def initialize_ids
     @ids =  @categories.map { |category| category.id }

@@ -29,4 +29,13 @@ describe PropabilityCollection do
       expect(collection.find(object_1)).to eq 0.25
     end
   end
+
+  describe 'sum' do
+    it 'returns the sum of all propabilities' do
+      collection.set(category: object_1, value: 0.5)
+      collection.set(category: object_2, value: 0.2)
+
+      expect(collection.sum).to eq 0.7
+    end
+  end
 end
