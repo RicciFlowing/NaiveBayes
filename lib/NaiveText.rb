@@ -1,14 +1,14 @@
-require "NaiveBayes/version"
-require "NaiveBayes/ExamplesGroup"
-require "NaiveBayes/PropabilityCollection"
-require "NaiveBayes/PropabilityCalculator"
-require "NaiveBayes/TextClassifier"
-require "NaiveBayes/Text"
-require "NaiveBayes/Category"
-require "NaiveBayes/Categories"
-require "NaiveBayes/CategoriesFactory"
+require "NaiveText/version"
+require "NaiveText/ExamplesGroup"
+require "NaiveText/PropabilityCollection"
+require "NaiveText/PropabilityCalculator"
+require "NaiveText/TextClassifier"
+require "NaiveText/Text"
+require "NaiveText/Category"
+require "NaiveText/Categories"
+require "NaiveText/CategoriesFactory"
 
-module NaiveBayes
+module NaiveText
   extend self
 
   def build(config)
@@ -26,7 +26,7 @@ module NaiveBayes
       @text = Text.new(text: text, classifier: @test_classifier)
       @text.classify
     rescue
-      puts "An Error occured. Did you call NaiveBayes.build before using classify"
+      puts "An Error occured. Did you call NaiveText.build before using classify"
     end
   end
 end

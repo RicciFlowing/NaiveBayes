@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'NaiveBayes'
+require 'NaiveText'
 
 describe TextClassifier do
   let(:category) { double('category_double', id: 1) }

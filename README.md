@@ -1,4 +1,4 @@
-# NaiveBayes
+# NaiveText
 
 A naive Bayes Textclassifier written in Ruby
 
@@ -13,7 +13,7 @@ The Algorithm bases the decisions on given text examples.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'NaiveBayes'
+gem 'NaiveText'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install NaiveBayes
+    $ gem install NaiveText
 
 ## Usage
 
@@ -34,25 +34,25 @@ Fill the directories with examples for interesting/boring texts. This will the t
 Next up, the code:
 
 ```ruby
-require 'NaiveBayes'
+require 'NaiveText'
 ```
 Now build the systems with your categories and training texts:
 
 ```ruby
 categories_config = [{name: 'interesting', path: 'spec/training/positive'},
                      {name: 'boring', path: 'spec/training/negative'}]
-NaiveBayes.build(categories_config)
+NaiveText.build(categories_config)
 ```
 Now you can start classifying texts:
 
 ```ruby
-NaiveBayes.classify('Seems to be interesting')
-NaiveBayes.classify('Seems to be boring')
+NaiveText.classify('Seems to be interesting')
+NaiveText.classify('Seems to be boring')
 ```
 Classify will return a category-object on which you can call name to get the name of the category as a string.
 
 ```ruby
-category = NaiveBayes.classify('Something interesting')
+category = NaiveText.classify('Something interesting')
 category.name
  => 'interesting'
 ```
@@ -68,7 +68,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/RicciFlowing/NaiveBayes/fork )
+1. Fork it ( https://github.com/RicciFlowing/NaiveText/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

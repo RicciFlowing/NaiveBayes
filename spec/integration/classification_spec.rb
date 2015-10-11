@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'NaiveBayes'
+require 'NaiveText'
 
 describe 'Classification' do
   categories_config = [{name: 'interesting', path: 'spec/training/positive'},

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'NaiveBayes'
+require 'NaiveText'
 
 describe CategoriesFactory do
   let(:categories_config) do

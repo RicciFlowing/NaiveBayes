@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in NaiveBayes.gemspec
+# Specify your gem's dependencies in NaiveText.gemspec
 gemspec

@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'NaiveBayes/version'
+require 'NaiveText/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "NaiveBayes"
-  spec.version       = NaiveBayes::VERSION
+  spec.name          = "NaiveText"
+  spec.version       = NaiveText::VERSION
   spec.authors       = ["RicciFlowing"]
   spec.email         = ["benjamin@mathe-sellin.de"]
 
-  spec.summary       = "A Naivebayes text classifier"
+  spec.summary       = "A NaiveText text classifier"
   spec.description   = "Sort texts based on expample texts in predefined categories"
-  spec.homepage      = "https://github.com/RicciFlowing/NaiveBayes"
+  spec.homepage      = "https://github.com/RicciFlowing/NaiveText"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
