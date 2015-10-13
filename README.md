@@ -41,18 +41,18 @@ Now build the systems with your categories and training texts:
 ```ruby
 categories_config = [{name: 'interesting', path: 'spec/training/positive'},
                      {name: 'boring', path: 'spec/training/negative'}]
-NaiveText.build(categories_config)
+classifier = NaiveText.build(categories_config)
 ```
 Now you can start classifying texts:
 
 ```ruby
-NaiveText.classify('Seems to be interesting')
-NaiveText.classify('Seems to be boring')
+classifier.classify('Seems to be interesting')
+classifier.classify('Seems to be boring')
 ```
 Classify will return a category-object on which you can call name to get the name of the category as a string.
 
 ```ruby
-category = NaiveText.classify('Something interesting')
+category = classifier.classify('Something interesting')
 category.name
  => 'interesting'
 ```

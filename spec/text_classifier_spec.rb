@@ -12,11 +12,11 @@ describe TextClassifier do
     TextClassifier.new(categories: categories, calculator: calculator)
   end
 
-  it 'gets the right category for a list of words' do
+  it 'classifies a text and returns a category' do
     propabilities.set(category: category, value: 0.5)
     propabilities.set(category: category2, value: 0.7)
     allow(calculator).to(receive(:get_propabilities_for) { propabilities })
 
-    expect(classifier.get_category_for(['France']).id).to eq category2.id
+    expect(classifier.classify("France").id).to eq category2.id
   end
 end
