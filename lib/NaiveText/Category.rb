@@ -19,3 +19,13 @@ class Category
     @examples.word_count
   end
 end
+
+class NullCategory
+  attr_reader :name
+  attr_reader :id
+
+  def initialize
+    @name = "No Category"
+    @id = 0
+  end
+end

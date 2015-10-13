@@ -6,6 +6,10 @@ class PropabilityCalculator
 
   def get_propabilities_for(words)
     calculateProbabilities(words)
+    if(@propabilities.sum > 0)
+      normalize
+    end
+    @propabilities
   end
 
   private
@@ -20,11 +24,11 @@ class PropabilityCalculator
           @propabilities.multiply(category: category, factor: category.p(word) )
         end
       end
+    end
 
+    def normalize
       normalization_factor = 1.to_f / @propabilities.sum
       @propabilities.multiply(factor: normalization_factor)
-
-      @propabilities
     end
 
     def p_apriori(category)

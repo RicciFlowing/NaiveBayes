@@ -11,7 +11,11 @@ class TextClassifier
 
   def get_category_for(list_of_words)
     propabilities = @calculator.get_propabilities_for(list_of_words)
-    propabilities.max
+    if(propabilities.sum == 0)
+      NullCategory.new
+    else
+      propabilities.max
+    end
   end
 
 end

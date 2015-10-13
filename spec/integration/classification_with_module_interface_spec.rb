@@ -9,6 +9,13 @@ describe 'Classification' do
 
   it 'classifies the given text correctly' do
     classifier = NaiveText.build(categories_config)
-    classifier.classify("test")
+    expect { classifier.classify("test") }
   end
+
+  it 'classifies a text not mentioned as no_category' do
+    classifier = NaiveText.build(categories_config)
+    expect(classifier.classify("abc").name).to eq  "No Category"
+  end
+
+
 end
