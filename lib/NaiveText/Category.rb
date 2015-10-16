@@ -18,6 +18,10 @@ class Category
   def word_count
     @examples.word_count
   end
+
+  def to_s
+    @name
+  end
 end
 
 class NullCategory

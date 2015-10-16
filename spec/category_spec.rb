@@ -23,6 +23,12 @@ describe Category do
     end
   end
 
+  describe 'to_s' do
+    it 'returns its name' do
+      expect(category.to_s).to eq category.name
+    end
+  end
+
   describe 'id' do
     it 'returns an id' do
       expect(category.id).to be > 0
