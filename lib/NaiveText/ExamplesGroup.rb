@@ -2,6 +2,9 @@ class ExamplesGroup
   def initialize(path)
     @text = load_text(path)
     @words = @text.split(/\W+/)
+    if @words.length == 0
+      raise 'Empty Trainingsdata'
+    end
   end
 
   def count(word)

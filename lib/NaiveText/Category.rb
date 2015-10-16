@@ -12,7 +12,11 @@ class Category
   end
 
   def p(word)
-    @examples.count(word).to_f / @examples.word_count
+    if(@examples.word_count>0)
+      @examples.count(word).to_f / @examples.word_count
+    else
+      0
+    end
   end
 
   def word_count
