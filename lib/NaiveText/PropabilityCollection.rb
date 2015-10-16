@@ -27,9 +27,13 @@ class PropabilityCollection
     end
   end
 
-  def max
+  def category_with_max
     id = @propabilities.find_index(@propabilities.max)
     @categories.find {|category| category.id == id}
+  end
+
+  def max
+    @propabilities.max
   end
 
   def sum

@@ -13,6 +13,10 @@ class Categories
     @categories.each(&block)
   end
 
+  def total_word_count
+    @categories.inject(0) { |count, category | count + category.word_count  }
+  end
+
   private
 
    def calculate_apriori_propability_for(category)

@@ -7,8 +7,10 @@ require "NaiveText/Category"
 require "NaiveText/Categories"
 require "NaiveText/CategoriesFactory"
 
+
+
 module NaiveText
-  
+
   def self.build(config)
     begin
       @categories = CategoriesFactory.build(config)

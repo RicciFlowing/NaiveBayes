@@ -6,23 +6,16 @@ class TextClassifier
   end
 
   def classify(text)
-    words = text.split(/\W+/)
-    get_category_for(words)
+    get_category_for(text)
   end
 
   def propabilities(text)
-    get_propabilities(text)
+    @calculator.get_propabilities(text)
   end
 
 private
-  def get_category_for(list_of_words)
-    propabilities = @calculator.get_propabilities_for(list_of_words)
-    propabilities.max
+  def get_category_for(text)
+    propabilities = @calculator.get_propabilities_for(text)
+    propabilities.category_with_max
   end
-
-  def get_propabilities(text)
-    words = text.split(/\W+/)
-    @calculator.get_propabilities_for(words)
-  end
-
 end
