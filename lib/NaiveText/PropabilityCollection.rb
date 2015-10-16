@@ -36,6 +36,17 @@ class PropabilityCollection
     @propabilities.reduce(:+)
   end
 
+  def to_s
+    result = ''
+    @categories.each do |category|
+      result << category.to_s
+      result << ':'
+      result << self.find(category).to_s
+      result << '\n'
+    end
+    result
+  end
+
   private
   def initialize_ids
     @ids =  @categories.map { |category| category.id }

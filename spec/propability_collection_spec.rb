@@ -49,4 +49,14 @@ describe PropabilityCollection do
       expect(collection.sum).to eq 0.7
     end
   end
+
+  describe 'to_s' do
+    it 'returns a string containing the propabilities' do
+      collection.set(category: object_1, value: 0.5)
+      collection.set(category: object_2, value: 0.2)
+
+      expect(collection.to_s).to include 0.5.to_s
+      expect(collection.to_s).to include 0.2.to_s
+    end
+  end
 end

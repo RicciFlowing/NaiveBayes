@@ -12,7 +12,21 @@ class PropabilityCalculator
     @propabilities
   end
 
+  def minimum
+    minimum = 0.1 * 1.to_f/total_word_count
+  end
+
   private
+    def total_word_count
+      @categories.inject(0) { |count, category | count + category.word_count  }
+    end
+
+    def min_factor(factor)
+      if factor.to_f < self.minimum
+        factor = self.minimum
+      end
+      factor
+    end
 
     def calculateProbabilities(list_of_words)
       @categories.each do |category|
@@ -21,7 +35,7 @@ class PropabilityCalculator
 
       list_of_words.each do |word|
         @categories.each do |category|
-          @propabilities.multiply(category: category, factor: category.p(word) )
+          @propabilities.multiply(category: category, factor: min_factor(category.p(word)) )
         end
       end
     end
