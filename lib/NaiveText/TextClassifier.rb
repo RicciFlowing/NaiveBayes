@@ -10,7 +10,7 @@ class TextClassifier
   end
 
   def propabilities(text)
-    @calculator.get_propabilities(text)
+    @calculator.get_propabilities_for(text)
   end
 
 private

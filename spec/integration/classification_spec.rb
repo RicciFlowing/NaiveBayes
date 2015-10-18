@@ -17,6 +17,11 @@ describe 'Classification' do
     expect { classifier.classify("test").name }
   end
 
+  it 'returns a propability collection' do
+    classifier = NaiveText.build(categories_config)
+    expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
+  end
+
   context 'with empty trainings file' do
     it 'warns the user' do
       expect(STDOUT).to receive(:puts).at_least(1)

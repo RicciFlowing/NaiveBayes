@@ -3,7 +3,7 @@ class ExamplesGroup
     @text = load_text(path)
     @words = @text.split(/\W+/)
     if @words.length == 0
-      raise 'Empty Trainingsdata'
+      raise 'Empty_Trainingsdata'
     end
   end
 

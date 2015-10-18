@@ -46,7 +46,7 @@ class PropabilityCollection
       result << category.to_s
       result << ':'
       result << self.find(category).to_s
-      result << '\n'
+      result << "\n"
     end
     result
   end
