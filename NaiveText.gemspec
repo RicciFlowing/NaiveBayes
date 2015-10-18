@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "A NaiveText text classifier"
   spec.description   = "Sort texts based on expample texts in predefined categories"
   spec.homepage      = "https://github.com/RicciFlowing/NaiveText"
+  spec.licenses    = ['MIT']
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
