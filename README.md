@@ -5,8 +5,8 @@ A naive Bayes Textclassifier written in Ruby
 1. What does it do?
 ----
 
-It sorts text into to categories predefined categories (i.e. interesting/boring).
-The Algorithm bases the decisions on given text examples.
+It sorts text into predefined categories (i.e. interesting/boring).
+The algorithm bases its decisions on given text examples.
 
 ## Installation
 
@@ -26,10 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-In brief the process is as follows:
-
-Create a directory (naming convention: training) containing subdirectories for every category (i.e. 'interesting' and 'boring').
-Fill the directories with examples for interesting/boring texts. This will the training material for the algorithm.
+Create a directory for the trainings-data containing subdirectories for every category (i.e. 'interesting' and 'boring'). Fill the directories with examples for interesting/boring texts.
 
 Next up, the code:
 
