@@ -19,23 +19,23 @@ describe 'Classification' do
       expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
     end
   end
-
-  context 'with trainingsdata as ActiveRecords' do
-    let(:categories_config) do
-       [{name: 'interesting', models: Test.interesting, property: 'description' },
-        {name: 'boring', models:Test.boring, property: 'description' }]
-    end
-
-    it 'classifies the given text correctly' do
-      classifier = NaiveText.build(categories_config)
-      expect { classifier.classify("test").name }
-    end
-
-    xit 'returns a propability collection' do
-      classifier = NaiveText.build(categories_config)
-      expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
-    end
-  end
+  # Postponed Development for active record trainings data, as it will cause an breaking interface change
+  #
+  # context 'with trainingsdata as ActiveRecords' do
+  #   let(:config) do
+  #     {category_model: 'Category', name: 'name', texts: 'texts' }
+  #   end
+  #
+  #   xit 'classifies the given text correctly' do
+  #     classifier = NaiveText.build(config)
+  #     expect(classifier.classify("test").name)
+  #   end
+  #
+  #   xit 'returns a propability collection' do
+  #     classifier = NaiveText.build(categories_config)
+  #     expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
+  #   end
+  # end
 
   context 'with empty trainings file' do
     let(:empty_file) do
