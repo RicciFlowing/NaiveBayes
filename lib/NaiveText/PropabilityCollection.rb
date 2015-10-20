@@ -28,12 +28,26 @@ class PropabilityCollection
   end
 
   def category_with_max
-    id = @propabilities.find_index(@propabilities.max)
-    @categories.find {|category| category.id == id}
+    if @propabilities.max > 0
+      id = @propabilities.find_index(@propabilities.max)
+      @categories.find {|category| category.id == id}
+    else
+      NullCategory.new
+    end
   end
 
   def max
     @propabilities.max
+  end
+
+  def greater_then(value)
+    @propabilities.map! do |p|
+       if p > value
+         p
+       else
+         0
+       end
+    end
   end
 
   def sum
@@ -61,7 +75,4 @@ class PropabilityCollection
       @propabilities << 0
     end
   end
-
-
-
 end

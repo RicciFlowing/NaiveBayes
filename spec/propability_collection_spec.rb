@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe PropabilityCollection do
-  let(:object_1) { double('objects_with_id', id: 1) }
-  let(:object_2) { double('objects_with_id', id: 2) }
+  let(:object_1) { double('objects_with_id', id: 1, word_count: 200) }
+  let(:object_2) { double('objects_with_id', id: 2, word_count: 200) }
   let(:categories) { Categories.new(categories: [object_1, object_2]) }
   let(:collection) { PropabilityCollection.new(categories: categories) }
   let(:collection2) { PropabilityCollection.new(categories: categories) }

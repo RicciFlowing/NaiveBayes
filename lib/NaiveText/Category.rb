@@ -33,7 +33,7 @@ class NullCategory
   attr_reader :id
 
   def initialize
-    @name = "No Category"
+    @name = "No category"
     @id = 0
   end
 end

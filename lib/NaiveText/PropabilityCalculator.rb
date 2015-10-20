@@ -6,34 +6,40 @@ class PropabilityCalculator
 
   def get_propabilities_for(text)
     calculateProbabilities(text)
-    normalize unless @propabilities.sum < 0
+    normalize unless @propabilities.sum <= 0
     @propabilities
   end
 
 
   private
-    def minimum
-      minimum = 1.to_f/(10*@categories.total_word_count)
+    def protect_factor(factor)
+      [factor, minimum].max
     end
 
-    def min_factor(factor)
-      if factor.to_f < minimum
-        factor = minimum
-      end
-      factor
+    def minimum
+      1.to_f/(10*@categories.total_word_count)
     end
 
     def calculateProbabilities(text)
+      set_apriori_propabilities
       list_of_words = text.split(/\W+/)
+      list_of_words.each do |word|
+        @categories.each do |category|
+          @propabilities.multiply(category: category, factor: protect_factor(category.p(word)) )
+        end
+      end
+      remove_minimum(text)
+    end
+
+    def set_apriori_propabilities
       @categories.each do |category|
         @propabilities.set(category: category, value: p_apriori(category))
       end
+    end
 
-      list_of_words.each do |word|
-        @categories.each do |category|
-          @propabilities.multiply(category: category, factor: min_factor(category.p(word)) )
-        end
-      end
+    def remove_minimum(text)
+      times = text.split(/\W+/).length
+      @propabilities.greater_then(minimum**times)
     end
 
     def normalize
@@ -44,6 +50,4 @@ class PropabilityCalculator
     def p_apriori(category)
       @categories.p_apriori(category)
     end
-
-
 end

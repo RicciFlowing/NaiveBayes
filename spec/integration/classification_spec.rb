@@ -32,6 +32,11 @@ describe 'Classification' do
       expect(classifier.classify("test").name).to eq classifier.classify("Test").name
     end
 
+    it 'returns  not category for words that are not matched in the files' do
+      puts classifier.propabilities("This words aren't in the files")
+      expect(classifier.classify("This words aren't in the files").name).to eq "No category"
+    end
+
   end
 
 
