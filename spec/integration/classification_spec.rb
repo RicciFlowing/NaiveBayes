@@ -19,6 +19,22 @@ describe 'Classification' do
       expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
     end
   end
+
+  context 'with simple trainingsdata' do
+    let(:categories_config) do
+       [{name: 'interesting', path: 'spec/training2/positive'},
+        {name: 'boring', path: 'spec/training2/negative'}]
+    end
+
+    let(:classifier) { NaiveText.build(categories_config) }
+
+    it 'is case insensitve' do
+      expect(classifier.classify("test").name).to eq classifier.classify("Test").name
+    end
+
+  end
+
+
   # Postponed Development for active record trainings data, as it will cause an breaking interface change
   #
   # context 'with trainingsdata as ActiveRecords' do

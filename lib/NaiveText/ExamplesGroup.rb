@@ -5,10 +5,11 @@ class ExamplesGroup
     if @words.length == 0
       raise 'Empty_Trainingsdata'
     end
+    @words.map! {|word| word.downcase}
   end
 
   def count(word)
-    @words.count(word)
+    @words.count(word.downcase)
   end
 
   def word_count
