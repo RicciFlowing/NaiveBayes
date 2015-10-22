@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Example do
-  let(:example) { Example.new('spec/training2/negative/test.txt') }
+describe FileExample do
+  let(:example) { FileExample.new(path: 'spec/training2/negative/test.txt') }
 
   describe 'text' do
     it 'returns the text of the example' do

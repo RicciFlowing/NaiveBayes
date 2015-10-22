@@ -1,12 +1,19 @@
 class Example
   attr_reader :text
 
-  def initialize(path)
-    @text = load_text(path)
+  def initialize(args)
+    load_text(args)
   end
 
   private
-    def load_text(path)
-      @text = File.read(path)
+    def load_text(args)
+
+    end
+end
+
+class FileExample < Example
+  private
+    def load_text(args)
+      @text = File.read(args[:path])
     end
 end
