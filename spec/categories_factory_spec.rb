@@ -10,6 +10,5 @@ describe CategoriesFactory do
   it "build creates a Categories object" do
     categories = CategoriesFactory.build(categories_config)
     expect(categories.first.name).to eq 'interesting'
-    expect(categories.p_apriori(categories.first)).to be_between(0, 1)
   end
 end

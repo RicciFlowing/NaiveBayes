@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe ExamplesGroup do
-  let(:group) { ExamplesGroup.new('spec/training/positive') }
+  let(:example) { double('example', {text: 'Blender'}) }
+  let(:group) { ExamplesGroup.new(examples:[example]) }
 
   describe 'count' do
     it 'returns a positive value for a word in a interesting text' do

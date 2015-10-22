@@ -1,4 +1,6 @@
 require "NaiveText/version"
+require "NaiveText/Example"
+require "NaiveText/ExamplesFactory"
 require "NaiveText/ExamplesGroup"
 require "NaiveText/PropabilityCollection"
 require "NaiveText/PropabilityCalculator"

@@ -1,11 +1,12 @@
 class ExamplesGroup
-  def initialize(path)
-    @text = load_text(path)
-    @words = @text.split(/\W+/)
+  def initialize(args)
+    @examples = args[:examples] || []
+    load_text
+    split_text_into_words
+    format_words
     if @words.length == 0
       raise 'Empty_Trainingsdata'
     end
-    @words.map! {|word| word.downcase}
   end
 
   def count(word)
@@ -18,12 +19,18 @@ class ExamplesGroup
 
   private
 
-    def load_text(path)
-      text = ""
-      Dir.foreach(path) do |example_file|
-        next if example_file == '.' or example_file == '..'
-        text += File.read(path +'/'+ example_file)
+    def load_text
+      @text = ''
+      @examples.each do |example|
+        @text = example.text
       end
-      text
+    end
+
+    def split_text_into_words
+      @words = @text.split(/\W+/)
+    end
+
+    def format_words
+      @words.map! {|word| word.downcase}
     end
 end

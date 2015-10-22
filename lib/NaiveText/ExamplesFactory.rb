@@ -1,0 +1,14 @@
+class ExamplesFactory
+  def self.from_files(dir_path)
+      begin
+        examples = []
+        Dir.foreach(dir_path) do |file_path|
+          next if file_path == '.' or file_path == '..'
+          examples.push Example.new(dir_path+'/'+file_path)
+        end
+      rescue
+        puts "Failed laoding" + dir_path
+      end
+    examples
+  end
+end
