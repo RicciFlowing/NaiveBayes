@@ -5,7 +5,7 @@ A naive Bayes Textclassifier written in Ruby
 1. What does it do?
 ----
 
-It sorts text into predefined categories (i.e. interesting/boring).
+It sorts texts into predefined categories (i.e. interesting/boring).
 The algorithm bases its decisions on given text examples.
 
 ## Installation
@@ -26,33 +26,27 @@ Or install it yourself as:
 
 ## Usage
 
-Create a directory for the trainings-data containing subdirectories for every category (i.e. 'interesting' and 'boring'). Fill the directories with examples for interesting/boring texts.
+The algorithm needs some examples for training. An example is a object that responds to text with a string (i.e. ActiveRecord models with an text attribute will do).
+You can also use ExamplesFactory.from_files('path/to/dir') will create an array of examples out of files in a category.
 
-Next up, the code:
+
+### example
+
+You have an ActiveRecord model named Post which contains its content in the text attribute. A user can vote a post up or down. There are also two scopes on Post: up_voted and down_voted, which responds with all up/down voted posts.
+
+We will build a system which predicts if a new post is interesting to the user or if it will bore him a sleep.
 
 ```ruby
 require 'NaiveText'
-```
-Now build the systems with your categories and training texts:
 
-```ruby
-interesting_examples = ExamplesFactory.from_files('spec/training/positive')
-boring_examples = ExamplesFactory.from_files('spec/training/negative')
+interesting_examples = Posts.up_voted
+boring_examples = Posts.down_voted
 categories = [{name: 'interesting', examples: interesting_examples},
                      {name: 'boring', examples: boring_examples}];
 
 classifier = NaiveText.build(categories: categories)
-```
-Now you can start classifying texts:
 
-```ruby
-classifier.classify('Seems to be interesting')
-classifier.classify('Seems to be boring')
-```
-Classify will return a category-object on which you can call name to get the name of the category as a string.
-
-```ruby
-category = classifier.classify('Something interesting')
+category = classifier.classify(new_interesting_post.text)
 category.name
  => 'interesting'
 ```
