@@ -22,7 +22,7 @@ class ExamplesGroup
     def load_text
       @text = ''
       @examples.each do |example|
-        @text = example.text
+        @text += ' ' + example.text
       end
     end
 
