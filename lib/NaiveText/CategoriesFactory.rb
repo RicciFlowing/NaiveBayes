@@ -15,7 +15,7 @@ class CategoriesFactory
       end
       Categories.new(categories: categories)
     else
-      config.categories.each do |category_config|
+      config[:categories].each do |category_config|
         begin
           group = ExamplesGroup.new(examples: category_config[:examples])
           categories << Category.new(name: category_config[:name], examples: group)
