@@ -6,7 +6,7 @@ A naive Bayes Textclassifier written in Ruby
 ----
 
 It sorts texts into predefined categories (i.e. interesting/boring).
-The algorithm bases its decisions on given text examples.
+The algorithm bases its decisions on classified trainingdata (text files, ActiveRecord models,...).
 
 ## Installation
 
@@ -26,21 +26,28 @@ Or install it yourself as:
 
 ## Usage
 
-The algorithm needs some examples for training. An example is a object that responds to text with a string (i.e. ActiveRecord models with an text attribute will do).
-You can also use ExamplesFactory.from_files('path/to/dir') will create an array of examples out of files in a category.
+The algorithm needs some examples for training. An example is a object with an id that responds to the text message with a string (i.e. ActiveRecord models with an text attribute will do).
+You can also use local files as examples (via ExamplesFactory.from_files('path/to/dir')).
 
 
-### example
 
-You have an ActiveRecord model named Post which contains its content in the text attribute. A user can vote a post up or down. There are also two scopes on Post: up_voted and down_voted, which responds with all up/down voted posts.
+### Example
 
-We will build a system which predicts if a new post is interesting to the user or if it will bore him a sleep.
+Lets pretend you write some kind of forum. A user can write posts and can vote them up or down.
+
+
+We will build a system which predicts if a new post is interesting to the user or if this post will bore him a sleep.
+
+In your system (an rails app of course) you haven a *Post* model with a text attribute containing the posts content. There are also two scopes on Post: *up_voted* and *down_voted*, which return all up/down voted posts.
+
+
 
 ```ruby
 require 'NaiveText'
 
-interesting_examples = Posts.up_voted
-boring_examples = Posts.down_voted
+interesting_examples = Post.up_voted.to_a
+boring_examples = Post.down_voted.to_a
+
 categories = [{name: 'interesting', examples: interesting_examples},
                      {name: 'boring', examples: boring_examples}];
 
@@ -50,7 +57,8 @@ category = classifier.classify(new_interesting_post.text)
 category.name
  => 'interesting'
 ```
-
+Checkout the full example and some more in the
+[NaiveText-example repo](https://github.com/RicciFlowing/NaiveText-examples).
 Have fun using it!
 
 
