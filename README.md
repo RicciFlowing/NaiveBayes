@@ -1,12 +1,12 @@
 # NaiveText
 
-A naive Bayes Textclassifier written in Ruby
+NaiveText is a text classifier gem written in ruby and made to be easily integratable in your Rails app.
 
 1. What does it do?
 ----
+Text classifier are used in many areas of IT. The filter spam, predict what a user wants to buy, detect which language a text is written in, ...
 
-It sorts texts into predefined categories (i.e. interesting/boring).
-The algorithm bases its decisions on classified trainingdata (text files, ActiveRecord models,...).
+The kind of classifier included in NaiveText, uses existing text examples (junk-makrde e-mails, allready bought products, texts in different languages, ...) to calculate in which category (spam/e-mail, interesting_product/not_interesting_product, ...) a unknown text belongs.
 
 ## Installation
 
@@ -45,8 +45,8 @@ In your system (an rails app of course) you haven a *Post* model with a text att
 ```ruby
 require 'NaiveText'
 
-interesting_examples = Post.up_voted.to_a
-boring_examples = Post.down_voted.to_a
+interesting_examples = Post.up_voted
+boring_examples = Post.down_voted
 
 categories = [{name: 'interesting', examples: interesting_examples},
                      {name: 'boring', examples: boring_examples}];
@@ -60,13 +60,6 @@ category.name
 Checkout the full example and some more in the
 [NaiveText-example repo](https://github.com/RicciFlowing/NaiveText-examples).
 Have fun using it!
-
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 

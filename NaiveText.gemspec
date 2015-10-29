@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["RicciFlowing"]
   spec.email         = ["benjamin@mathe-sellin.de"]
 
-  spec.summary       = "A NaiveText text classifier"
-  spec.description   = "Sort texts based on expample texts in predefined categories"
+  spec.summary       = "A text classifier written in ruby"
+  spec.description   = "NaiveText is a text classifier gem written in ruby and made to be easily integratable in your Rails app."
   spec.homepage      = "https://github.com/RicciFlowing/NaiveText"
   spec.licenses    = ['MIT']
 

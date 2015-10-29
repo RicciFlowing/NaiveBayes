@@ -1,6 +1,6 @@
 class ExamplesGroup
   def initialize(args)
-    @examples = args[:examples] || []
+    @examples = args[:examples].to_a || []
     load_text
     split_text_into_words
     format_words
