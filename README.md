@@ -2,8 +2,8 @@
 
 NaiveText is a text classifier gem written in ruby and made to be easily integratable in your Rails app.
 
-1. What does it do?
-----
+## What is it good for?
+
 Text classifier are used in many areas of IT. The filter spam, predict what a user wants to buy, detect which language a text is written in, ...
 
 The kind of classifier included in NaiveText, uses existing text examples (junk-makrde e-mails, allready bought products, texts in different languages, ...) to calculate in which category (spam/e-mail, interesting_product/not_interesting_product, ...) a unknown text belongs.
@@ -35,12 +35,9 @@ You can also use local files as examples (via ExamplesFactory.from_files('path/t
 
 Lets pretend you write some kind of forum. A user can write posts and can vote them up or down.
 
-
 We will build a system which predicts if a new post is interesting to the user or if this post will bore him a sleep.
 
 In your system (an rails app of course) you haven a *Post* model with a text attribute containing the posts content. There are also two scopes on Post: *up_voted* and *down_voted*, which return all up/down voted posts.
-
-
 
 ```ruby
 require 'NaiveText'
