@@ -4,19 +4,31 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
+  <h1>Welcome</h1>
+  <p> NaiveText is a text classifier gem written in ruby and made to be easily integratable in your Rails app. </p>
+  <h3>  What is it good for? </h3>
+  <p>
+    Text classifiers are used in many areas of IT:
+  </p>
+  <ul>
+    <li> They filter spam </li>
+    <li> Predict what a user wants to buy </li>
+    <li> Detect which language a text is written in </li>
   </ul>
+
+  <div>
+    <p>
+      Give it a try:
+    </p>
+    <code>
+      gem install naivetext
+    </code>
+    <p>
+      Or start out with one  of the examples found in the:
+      <a href="examples/" class="btn">examples section</a>
+    </p>
+
+  </div>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 

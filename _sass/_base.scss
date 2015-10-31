@@ -8,6 +8,12 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+.unstyled-list {
+  list-style: none;
+  list-style-position:inside;
+        margin:0;
+        padding:0;
+}
 
 
 /**
@@ -80,7 +86,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
@@ -135,6 +141,7 @@ code {
 
 code {
     padding: 1px 5px;
+    margin-bottom: 20px;
 }
 
 pre {

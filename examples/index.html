@@ -1,0 +1,23 @@
+---
+layout: example
+title: Examples
+permalink: /examples/
+---
+
+<div class="examples">
+
+  <ul class="unstyled-list">
+    {% for post in site.posts %}
+      <li>
+        <h2>{{ post.title }}</h2>
+        {{post.content}}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+<script src="/js/accordion.js"></script>
