@@ -5,7 +5,7 @@ date:   2015-10-30 10:41:56
 categories: 'post'
 ---
 
-Let's write a simple language detector. It will recognize German and English texts. You can add more languages with ease.
+Let's write a simple language detector. It will recognize german and english texts. But you can add more languages with ease.
 
 We will need the NaiveText gem, so go ahead ans install it:
 ```
@@ -34,6 +34,7 @@ The above Code does two things:
 
  1. It loads our examples (saved previously).
  2. It builds a classifier.
+
 
 To build a simple classifier you only need to specify an array of 'categories', consisting of a name for the category and some text examples as an orientation for the classifier
 
