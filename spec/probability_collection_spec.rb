@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe PropabilityCollection do
+describe ProbabilityCollection do
   let(:object_1) { double('objects_with_id', id: 1, word_count: 200) }
   let(:object_2) { double('objects_with_id', id: 2, word_count: 200) }
   let(:categories) { Categories.new(categories: [object_1, object_2]) }
-  let(:collection) { PropabilityCollection.new(categories: categories) }
-  let(:collection2) { PropabilityCollection.new(categories: categories) }
+  let(:collection) { ProbabilityCollection.new(categories: categories) }
+  let(:collection2) { ProbabilityCollection.new(categories: categories) }
 
   describe 'find' do
     it 'returns a float between 0 and 1 ' do
@@ -42,7 +42,7 @@ describe PropabilityCollection do
   end
 
   describe 'sum' do
-    it 'returns the sum of all propabilities' do
+    it 'returns the sum of all probabilities' do
       collection.set(category: object_1, value: 0.5)
       collection.set(category: object_2, value: 0.2)
 
@@ -51,7 +51,7 @@ describe PropabilityCollection do
   end
 
   describe 'to_s' do
-    it 'returns a string containing the propabilities' do
+    it 'returns a string containing the probabilities' do
       collection.set(category: object_1, value: 0.5)
       collection.set(category: object_2, value: 0.2)
 

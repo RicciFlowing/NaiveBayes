@@ -1,35 +1,35 @@
-class PropabilityCollection
+class ProbabilityCollection
   def initialize(args)
     @categories  =  args[:categories] || []
     initialize_ids
-    @propabilities = []
-    initalize_propabilities(@ids)
+    @probabilities = []
+    initalize_probabilities(@ids)
   end
 
   def find(category)
-    return @propabilities[category.id]
+    return @probabilities[category.id]
   end
 
 
   def set(args)
     category  = args[:category]
     value = args[:value]
-   @propabilities[category.id] = value
+   @probabilities[category.id] = value
   end
 
   def multiply(args)
     category = args[:category]
     factor = args[:factor]
     if category
-      @propabilities[category.id] *= factor
+      @probabilities[category.id] *= factor
     else
-      @propabilities.map! {|el| el*factor}
+      @probabilities.map! {|el| el*factor}
     end
   end
 
   def category_with_max
-    if @propabilities.max > 0
-      id = @propabilities.find_index(@propabilities.max)
+    if @probabilities.max > 0
+      id = @probabilities.find_index(@probabilities.max)
       @categories.find {|category| category.id == id}
     else
       NullCategory.new
@@ -37,11 +37,11 @@ class PropabilityCollection
   end
 
   def max
-    @propabilities.max
+    @probabilities.max
   end
 
   def greater_then(value)
-    @propabilities.map! do |p|
+    @probabilities.map! do |p|
        if p > value
          p
        else
@@ -51,7 +51,7 @@ class PropabilityCollection
   end
 
   def sum
-    @propabilities.reduce(:+)
+    @probabilities.reduce(:+)
   end
 
   def to_s
@@ -70,9 +70,9 @@ class PropabilityCollection
     @ids =  @categories.map { |category| category.id }
   end
 
-  def initalize_propabilities(ids)
+  def initalize_probabilities(ids)
     ids.max.times do
-      @propabilities << 0
+      @probabilities << 0
     end
   end
 end

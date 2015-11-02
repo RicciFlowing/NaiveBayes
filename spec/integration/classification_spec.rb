@@ -16,7 +16,7 @@ describe 'Classification' do
 
     it 'returns a propability collection' do
       classifier = NaiveText.build(categories_config)
-      expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
+      expect(classifier.probabilities("test")).to be_instance_of(ProbabilityCollection)
     end
   end
 
@@ -33,7 +33,7 @@ describe 'Classification' do
     end
 
     it 'returns  not category for words that are not matched in the files' do
-      puts classifier.propabilities("This words aren't in the files")
+      puts classifier.probabilities("This words aren't in the files")
       expect(classifier.classify("This words aren't in the files").name).to eq "No category"
     end
 
@@ -54,7 +54,7 @@ describe 'Classification' do
   #
   #   xit 'returns a propability collection' do
   #     classifier = NaiveText.build(categories_config)
-  #     expect(classifier.propabilities("test")).to be_instance_of(PropabilityCollection)
+  #     expect(classifier.probabilities("test")).to be_instance_of(ProbabilityCollection)
   #   end
   # end
 
