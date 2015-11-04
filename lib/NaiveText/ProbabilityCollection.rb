@@ -14,7 +14,7 @@ class ProbabilityCollection
   def set(args)
     category  = args[:category]
     value = args[:value]
-   @probabilities[category.id] = value
+    @probabilities[category.id] = value
   end
 
   def multiply(args)
@@ -25,6 +25,14 @@ class ProbabilityCollection
     else
       @probabilities.map! {|el| el*factor}
     end
+  end
+
+  def normalize
+    if self.sum > 0
+      normalization_factor = 1.to_f / self.sum
+      self.multiply(factor: normalization_factor)
+    end
+    self
   end
 
   def category_with_max

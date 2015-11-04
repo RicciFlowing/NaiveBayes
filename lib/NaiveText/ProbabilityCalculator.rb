@@ -6,8 +6,7 @@ class ProbabilityCalculator
 
   def get_probabilities_for(text)
     calculateProbabilities(text)
-    normalize unless @probabilities.sum <= 0
-    @probabilities
+    @probabilities.normalize
   end
 
 
@@ -33,21 +32,12 @@ class ProbabilityCalculator
 
     def set_apriori_probabilities
       @categories.each do |category|
-        @probabilities.set(category: category, value: p_apriori(category))
+        @probabilities.set(category: category, value: @categories.p_apriori(category))
       end
     end
 
     def remove_minimum(text)
       times = text.split(/\W+/).length
       @probabilities.greater_then(minimum**times)
-    end
-
-    def normalize
-      normalization_factor = 1.to_f / @probabilities.sum
-      @probabilities.multiply(factor: normalization_factor)
-    end
-
-    def p_apriori(category)
-      @categories.p_apriori(category)
     end
 end
