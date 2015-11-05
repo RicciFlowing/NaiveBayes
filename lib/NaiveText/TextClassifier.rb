@@ -23,7 +23,6 @@ private
     probabilities = @calculator.get_probabilities_for(text)
     @categories.each do |category|
       probabilities.multiply(category: category, factor: category.weight)
-      puts category.weight
     end
     probabilities.category_with_max
   end
