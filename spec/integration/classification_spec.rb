@@ -4,35 +4,40 @@ require 'NaiveText'
 describe 'Classification' do
 
   context 'with trainingsdata as files' do
+    let(:examples1) { ExamplesFactory.from_files('spec/training/positive') }
+    let(:examples2) { ExamplesFactory.from_files('spec/training/negative') }
     let(:categories_config) do
-       [{name: 'interesting', path: 'spec/training/positive'},
-        {name: 'boring', path: 'spec/training/negative'}]
+       [{name: 'interesting', examples: examples1},
+        {name: 'boring', examples: examples2}]
     end
 
+    let(:classifier) { NaiveText.build(categories: categories_config) }
     it 'classifies the given text correctly' do
-      classifier = NaiveText.build(categories_config)
-      expect { classifier.classify("test").name }
+      expect(classifier.classify("blender").name).to eq "interesting"
+      expect(classifier.classify("trinity").name).to eq "boring"
     end
 
-    it 'returns a propability collection' do
-      classifier = NaiveText.build(categories_config)
-      expect(classifier.probabilities("test")).to be_instance_of(ProbabilityCollection)
-    end
   end
 
   context 'with simple trainingsdata' do
+    let(:examples1) { ExamplesFactory.from_files('spec/training2/positive') }
+    let(:examples2) { ExamplesFactory.from_files('spec/training2/negative') }
     let(:categories_config) do
-       [{name: 'interesting', path: 'spec/training2/positive'},
-        {name: 'boring', path: 'spec/training2/negative'}]
+       [{name: 'interesting', examples: examples1},
+        {name: 'boring', examples: examples2}]
     end
 
-    let(:classifier) { NaiveText.build(categories_config) }
+    let(:classifier) { NaiveText.build(categories: categories_config) }
+
+    it 'returns a propability collection' do
+      expect(classifier.probabilities("test")).to be_instance_of(ProbabilityCollection)
+    end
 
     it 'is case insensitve' do
       expect(classifier.classify("test").name).to eq classifier.classify("Test").name
     end
 
-    it 'returns  not category for words that are not matched in the files' do
+    it 'returns  no category for words that are not matched in the files' do
       puts classifier.probabilities("This words aren't in the files")
       expect(classifier.classify("This words aren't in the files").name).to eq "No category"
     end
@@ -49,24 +54,27 @@ describe 'Classification' do
     let(:classifier) { NaiveText.build(categories: categories_config) }
 
     it 'classifies correctly' do
-      puts classifier.propabilities("test ruby")
       expect(classifier.classify("test ruby").name).to eq "ruby"
     end
   end
 
 
   context 'with empty trainings file' do
-    let(:empty_file) do
-       [{name: 'empty', path: 'spec/training/with_empty_file'},
-        {name: 'boring', path: 'spec/training/negative'}]
+    let(:example_test) { ExamplesFactory.from_files('spec/training2/negative') }
+    let(:empty) { ExamplesFactory.from_files('spec/training/with_empty_file/empty') }
+    let(:categories_config) do
+       [{name: 'test', examples: example_test},
+        {name: 'empty', examples: empty}]
     end
+
+    let(:classifier) { NaiveText.build(categories: categories_config) }
+
     it 'warns the user' do
       expect(STDOUT).to receive(:puts).at_least(1)
-      NaiveText.build(empty_file)
+      ExamplesFactory.from_files('spec/training/with_empty_file/empty')
     end
 
     it 'classifies the given text without errors' do
-      classifier = NaiveText.build(empty_file)
       expect(classifier.classify("test").name).to_not eq 'empty'
     end
   end
