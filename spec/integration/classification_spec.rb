@@ -36,27 +36,24 @@ describe 'Classification' do
       puts classifier.probabilities("This words aren't in the files")
       expect(classifier.classify("This words aren't in the files").name).to eq "No category"
     end
-
   end
 
+  context 'with weighted categories' do
+    let(:example_test) { ExamplesFactory.from_files('spec/training2/negative') }
+    let(:example_ruby) { ExamplesFactory.from_files('spec/training2/positive') }
+    let(:categories_config) do
+       [{name: 'test', examples: example_test, weight: 1},
+        {name: 'ruby', examples: example_ruby, weight: 4}]
+    end
 
-  # Postponed Development for active record trainings data, as it will cause an breaking interface change
-  #
-  # context 'with trainingsdata as ActiveRecords' do
-  #   let(:config) do
-  #     {category_model: 'Category', name: 'name', texts: 'texts' }
-  #   end
-  #
-  #   xit 'classifies the given text correctly' do
-  #     classifier = NaiveText.build(config)
-  #     expect(classifier.classify("test").name)
-  #   end
-  #
-  #   xit 'returns a propability collection' do
-  #     classifier = NaiveText.build(categories_config)
-  #     expect(classifier.probabilities("test")).to be_instance_of(ProbabilityCollection)
-  #   end
-  # end
+    let(:classifier) { NaiveText.build(categories: categories_config) }
+
+    it 'classifies correctly' do
+      puts classifier.propabilities("test ruby")
+      expect(classifier.classify("test ruby").name).to eq "ruby"
+    end
+  end
+
 
   context 'with empty trainings file' do
     let(:empty_file) do

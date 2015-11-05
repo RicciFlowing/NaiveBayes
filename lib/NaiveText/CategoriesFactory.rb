@@ -7,18 +7,20 @@ class CategoriesFactory
         begin
           examples = ExamplesFactory.from_files(category_config[:path])
           group = ExamplesGroup.new(examples: examples)
-          categories << Category.new(name: category_config[:name], examples: group)
+          categories << Category.new(name: category_config[:name], examples: group )
         rescue
           puts "You haven't provided trainingsdata for the category" + category_config[:name]
           puts "This category was not created."
         end
       end
       Categories.new(categories: categories)
+
+
     else
       config[:categories].each do |category_config|
         begin
           group = ExamplesGroup.new(examples: category_config[:examples])
-          categories << Category.new(name: category_config[:name], examples: group)
+          categories << Category.new(name: category_config[:name], examples: group, weight: category_config[:weight])
         rescue
           puts "You haven't provided trainingsdata for the category" + category_config[:name]
           puts "This category was not created."
