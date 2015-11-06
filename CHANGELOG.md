@@ -2,10 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.5.0] - 2015-11-06
+### Added
 - Added optional weighting to categories
 
 ##[0.4.2] - 2015-11-02
+### Changed
 -Fixed a typo in the interface of TextClassifier propabilities --> probabilities. Deprecated the old version.
 
 ## [0.4.1] - 2015-10-29
