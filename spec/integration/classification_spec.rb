@@ -37,10 +37,16 @@ describe 'Classification' do
       expect(classifier.classify("test").name).to eq classifier.classify("Test").name
     end
 
-    it 'returns  no category for words that are not matched in the files' do
-      puts classifier.probabilities("This words aren't in the files")
-      expect(classifier.classify("This words aren't in the files").name).to eq "No category"
-    end
+    context 'For texts that do not contain one intersection with the trainingsdata'
+
+      it 'returns a NullCategory if not default is set' do
+        expect(classifier.classify("This words aren't in the files").name).to eq "No category"
+      end
+
+      it 'returns the default category if one is set' do
+        classifier = NaiveText.build(categories: categories_config, default: 'interesting')
+        expect(classifier.classify("This words aren't in the files").name).to eq "interesting"
+      end
   end
 
   context 'with weighted categories' do

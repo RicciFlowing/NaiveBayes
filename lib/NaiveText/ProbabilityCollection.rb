@@ -40,7 +40,7 @@ class ProbabilityCollection
       id = @probabilities.find_index(@probabilities.max)
       @categories.find {|category| category.id == id}
     else
-      NullCategory.new
+      @categories.default
     end
   end
 

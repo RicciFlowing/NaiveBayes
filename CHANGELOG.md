@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Added
+- Added optional default category. This category will be returned from NaiveText.build if the algorithm can't find a match with the existing text examples. Default value is NullCategory.
+
 ## [0.5.0] - 2015-11-06
 ### Added
 - Added optional weighting to categories

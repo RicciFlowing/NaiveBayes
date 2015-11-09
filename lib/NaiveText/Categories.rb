@@ -1,8 +1,11 @@
 class Categories
   include Enumerable
 
+  attr_reader :default
+
   def initialize(args)
     @categories = args[:categories] || []
+    @default = args[:default] || NullCategory.new
   end
 
   def p_apriori(category)

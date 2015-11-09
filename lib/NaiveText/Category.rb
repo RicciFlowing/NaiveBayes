@@ -9,7 +9,7 @@ class Category
     @examples = args[:examples]
     @weight   = args[:weight] || 1
     @id       = @@id_counter
-    
+
     @@id_counter += 1
   end
 
