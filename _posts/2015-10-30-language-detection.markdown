@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Language Detection"
+title:  "Language detection"
 date:   2015-10-30 10:41:56
 categories: 'post'
 ---

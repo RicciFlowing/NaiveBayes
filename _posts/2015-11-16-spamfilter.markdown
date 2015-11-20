@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Spamfilter"
+title:  "Spam filter"
 date:   2015-11-16 10:41:56
 categories: 'post'
 ---
 
-In this example we will integrate a simple spamfilter for a rails app.
+In this example we will integrate a simple spam filter for a rails app.
 It shows you how you clean your user created rails models from spam.
 
 First we will create a simple rails app.
@@ -31,6 +31,7 @@ Make sure to run bundler:
 ```
 $ bundle
 ```
+
 Also be sure to set the root route to 'posts#index'
 
 For easier querying we add three scope to the Post model (learn more about scopes in the [rails guides](http://guides.rubyonrails.org/active_record_querying.html#scopes)).  
@@ -44,6 +45,7 @@ end
 ```
 
 The actual spam filter is pretty simple. (It is actually a singletion ruby class with one public method):
+
 ``` ruby
 class SpamFilter
   def self.spam?(post)
@@ -62,6 +64,7 @@ end
 
 To integrate the spam filter in our rails app. We need to to make some adjustments to the PostsController.
 At first we want to only list posts which are not categorized as spam. So in the index action we replace Post.all with Post.content.
+
 ``` ruby
 class PostsController < ApplicationController
   def index
@@ -70,14 +73,18 @@ class PostsController < ApplicationController
   end
   ...
 ```
+
 Same for our set_post method.
+
 ``` ruby
     # Changed Post.find to Post.content.find
     def set_post
       @post = Post.content.find(params[:id])
     end
 ```
+
 We also need to remove the content_type from our permited parameters. This way no user can submit a post and send a content_type along.
+
 ``` ruby
     # Remove content_type
     def post_params
@@ -100,7 +107,16 @@ The real filtering happens at the controllers create action: We simply ste the p
   end
 ```
 
-Before we can use our app. Be sure to put some examples posts in your seed file and run
+Before we can use our app. Be sure to put some examples posts in your seed file
+
+``` ruby
+Post.create([{text: 'Hello I am a friendly post', content_type: 'verified_content'},
+             {text: 'Arrgh this is a spam post', content_type: 'spam'}
+             ])
+```
+
+and run
+
 ```
 $ rake db:seed
 ```
@@ -108,6 +124,9 @@ $ rake db:seed
 ## Conclusion
 
 This solution, as it is, is just a first dip into the problematic of filtering spam from your user input.
-There are some drawbacks in this solution:
+There are some drawbacks in the current  solution:
+
 * Performance: As described above, every request will query all posts to create the classifier.
 * Verification: You need to verify content to get good results.
+
+Make sure to checkout the [source code](https://github.com/RicciFlowing/NaiveText-examples/tree/master/easy/spam_filter_2).

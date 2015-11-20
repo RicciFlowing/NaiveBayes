@@ -3,12 +3,19 @@ layout: example
 title: Examples
 permalink: /examples/
 ---
+<header class="side-nav">
+  {% for post in site.posts reversed %}
+  <ul>
+    <li> <a href="#{{ post.title }}"> {{ post.title }}</a></li>
+  </ul>
+      {% endfor %}
+</header>
 
 <div class="examples">
 
   <ul class="unstyled-list">
     {% for post in site.posts reversed %}
-      <li>
+      <li id="{{ post.title }}" class="example">
         <h2>{{ post.title }}</h2>
         {{post.content}}
       </li>

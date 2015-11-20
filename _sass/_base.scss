@@ -8,11 +8,48 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+$example-border-color: lighten(black,50%);
+
+.side-nav {
+  position: fixed;
+  height: 20vh;
+  left: 0;
+  margin-left: 30px;
+  padding: 10px;
+  border: solid;
+  border-radius: 5px;
+  border-color: $example-border-color;
+
+  ul {
+    list-style: none;
+    list-style-position:inside;
+    a{
+      color: #111;
+      &:hover{
+          text-decoration: none;
+      }
+    }
+  }
+
+
+}
+
+
 .unstyled-list {
   list-style: none;
   list-style-position:inside;
         margin:0;
         padding:0;
+
+}
+
+.example {
+  background-color: lighten(black,90%);
+  border: solid;
+  border-color: $example-border-color;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 20px;
 }
 .center {
   display: block;
