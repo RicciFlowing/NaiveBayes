@@ -32,4 +32,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 [Unreleased]: https://github.com/RicciFlowing/NaiveText/compare/v0.4.0...HEAD
-[0.4.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.0...v0.4.0
+[0.5.0]: https://github.com/RicciFlowing/NaiveText/compare/v0.1.0...v0.5.0
+[0.4.0]: https://github.com/RicciFlowing/NaiveText/compare/v0.1.0...v0.4.0
