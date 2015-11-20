@@ -7,7 +7,7 @@ categories: 'post'
 
 Let's write a simple language detector. It will recognize german and english texts. But you can add more languages with ease.
 
-We will need the NaiveText gem, so go ahead ans install it:
+We will need the NaiveText gem, so go ahead and install it:
 ```
 gem install NaiveText
 ```

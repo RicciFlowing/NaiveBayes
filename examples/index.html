@@ -7,7 +7,7 @@ permalink: /examples/
 <div class="examples">
 
   <ul class="unstyled-list">
-    {% for post in site.posts %}
+    {% for post in site.posts reversed %}
       <li>
         <h2>{{ post.title }}</h2>
         {{post.content}}
