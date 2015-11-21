@@ -10,6 +10,8 @@ dl, dd, ol, ul, figure {
 
 $example-border-color: lighten(black,50%);
 
+
+
 .side-nav {
   position: fixed;
   height: 20vh;
@@ -30,8 +32,12 @@ $example-border-color: lighten(black,50%);
       }
     }
   }
+}
 
-
+@media (max-width: 1500px) {
+  .side-nav {
+    position: relative;
+  }
 }
 
 

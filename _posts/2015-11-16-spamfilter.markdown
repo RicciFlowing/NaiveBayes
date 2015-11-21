@@ -5,15 +5,21 @@ date:   2015-11-16 10:41:56
 categories: 'post'
 ---
 
-In this example we will integrate a simple spam filter for a rails app.
-It shows you how you clean your user created rails models from spam.
+In this example we will write a simple spam filter integrated in a rails app which lists user posts. It shows you how you can reduce spam in user created rails models.
 
-First we will create a simple rails app.
+So we begin by creating a simple rails app.
 
 ```
 $ rails new SpamFree
 ```
-And scaffold the posts resource (containing one field for the posts text and one for the content type 'spam'/'content'/'verified_content'). Verified content in contrast to normal content is checked by you (or an admin) and is guaranteed to contain no spam:
+And scaffold the posts resource, which contains one field for the posts text and one for the content\_type. The content\_type of a post is one of the following strings:
+
+ 'spam',  'content' or 'verified\_content'
+
+and will be set by our spam filter. As you will assume models with a content\_type of 'spam' are spam and aren't accessible by the user. The difference between 'verified\_content' and 'content' is, that veriefied\_content is checked by you (or a moderator) and is guaranteed to contain no spam. It is used to train the spam
+filter.
+
+So go ahead an scaffold your rails app:
 
 ```
 $ rails g scaffold Post text:string content_type:string
@@ -44,7 +50,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-The actual spam filter is pretty simple. (It is actually a singletion ruby class with one public method):
+The actual spam filter is pretty simple. (It is actually a singleton ruby class with one public method):
 
 ``` ruby
 class SpamFilter
@@ -83,7 +89,7 @@ Same for our set_post method.
     end
 ```
 
-We also need to remove the content_type from our permited parameters. This way no user can submit a post and send a content_type along.
+We also need to remove the content\_type from our permitted parameters. This way no user can submit a post and send a content\_type along.
 
 ``` ruby
     # Remove content_type
@@ -107,7 +113,7 @@ The real filtering happens at the controllers create action: We simply ste the p
   end
 ```
 
-Before we can use our app. Be sure to put some examples posts in your seed file
+Before we can use our app, we need to make sure to put some example posts in our seed file
 
 ``` ruby
 Post.create([{text: 'Hello I am a friendly post', content_type: 'verified_content'},
@@ -127,6 +133,8 @@ This solution, as it is, is just a first dip into the problematic of filtering s
 There are some drawbacks in the current  solution:
 
 * Performance: As described above, every request will query all posts to create the classifier.
-* Verification: You need to verify content to get good results.
+* Verification: You need to manually verify content to get good results.
+* Unflexible: Right now a user can't mark posts as spam nor can he do anything if their post a falsliy classified as spam.
+
 
 Make sure to checkout the [source code](https://github.com/RicciFlowing/NaiveText-examples/tree/master/easy/spam_filter_2).
