@@ -6,7 +6,7 @@ NaiveText is a text classifier gem written in ruby and made to be easily integra
 
 Text classifier are used in many areas of IT. The filter spam, predict what a user wants to buy, detect which language a text is written in, ...
 
-The kind of classifier included in NaiveText, uses existing text examples (junk-makrde e-mails, allready bought products, texts in different languages, ...) to calculate in which category (spam/e-mail, interesting_product/not_interesting_product, ...) a unknown text belongs.
+The kind of classifier included in NaiveText, uses existing text examples (junk-makrde e-mails, already bought products, texts in different languages, ...) to calculate in which category (spam/e-mail, interesting_product/not_interesting_product, ...) a unknown text belongs.
 
 ## Installation
 
@@ -31,32 +31,9 @@ You can also use local files as examples (via ExamplesFactory.from_files('path/t
 
 
 
-### Example
+## Example
 
-Lets pretend you write some kind of forum. A user can write posts and can vote them up or down.
-
-We will build a system which predicts if a new post is interesting to the user or if this post will bore him a sleep.
-
-In your system (an rails app of course) you haven a *Post* model with a text attribute containing the posts content. There are also two scopes on Post: *up_voted* and *down_voted*, which return all up/down voted posts.
-
-```ruby
-require 'NaiveText'
-
-interesting_examples = Post.up_voted
-boring_examples = Post.down_voted
-
-categories = [{name: 'interesting', examples: interesting_examples},
-                     {name: 'boring', examples: boring_examples}];
-
-classifier = NaiveText.build(categories: categories)
-
-category = classifier.classify(new_interesting_post.text)
-category.name
- => 'interesting'
-```
-Checkout the full example and some more in the
-[NaiveText-example repo](https://github.com/RicciFlowing/NaiveText-examples).
-Have fun using it!
+Can be found on the projects [homepage](https://ricciflowing.github.io/NaiveText/).
 
 ## Contributing
 
