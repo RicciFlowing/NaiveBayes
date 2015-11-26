@@ -19,6 +19,21 @@ describe 'Classification' do
 
   end
 
+  context 'with language model' do
+    let(:examples1) { ExamplesFactory.from_files('spec/training2/positive') }
+    let(:examples2) { ExamplesFactory.from_files('spec/training2/negative') }
+    let(:categories_config) do
+       [{name: 'interesting', examples: examples1},
+        {name: 'boring', examples: examples2}]
+    end
+
+    let(:classifier) { NaiveText.build(categories: categories_config, language_model: lambda {|str| 'test' if str=='testing'}) }
+
+    it 'returns a propability collection' do
+      expect(classifier.classify("testing").name).to eq 'boring'
+    end
+  end
+
   context 'with simple trainingsdata' do
     let(:examples1) { ExamplesFactory.from_files('spec/training2/positive') }
     let(:examples2) { ExamplesFactory.from_files('spec/training2/negative') }
@@ -63,7 +78,6 @@ describe 'Classification' do
       expect(classifier.classify("test ruby").name).to eq "ruby"
     end
   end
-
 
   context 'with empty trainings file' do
     let(:example_test) { ExamplesFactory.from_files('spec/training2/negative') }
