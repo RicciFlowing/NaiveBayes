@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Added
+- Added optional language_model, that make it possible to compare words based on the word stem. (Like 'testing', 'tests', 'tested' all matched with the stem 'test')
+
 ## [0.5.1] - 2015-11-21
 ### Added
 - Added optional default category. This category will be returned from NaiveText.build if the algorithm can't find a match with the existing text examples. Default value is NullCategory.

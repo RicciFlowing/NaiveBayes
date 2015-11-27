@@ -1,6 +1,7 @@
 class ExamplesGroup
   def initialize(args)
-    @examples = args[:examples].to_a || []
+    @examples       = args[:examples].to_a || []
+    @language_model = args[:language_model] || lambda {|str| str}
     load_text
     split_text_into_words
     format_words
@@ -10,7 +11,7 @@ class ExamplesGroup
   end
 
   def count(word)
-    @words.count(word.downcase)
+    @words.count(@language_model.call(word.downcase))
   end
 
   def word_count
@@ -32,5 +33,7 @@ class ExamplesGroup
 
     def format_words
       @words.map! {|word| word.downcase}
+      @words.map! {|word| @language_model.call(word)}
+      @words
     end
 end
