@@ -7,7 +7,7 @@ class ExamplesFactory
           examples.push FileExample.new(path: dir_path+'/'+file_path)
         end
       rescue
-        puts "Failed laoding" + dir_path
+        puts "Failed loading" + dir_path
       end
     examples
   end
