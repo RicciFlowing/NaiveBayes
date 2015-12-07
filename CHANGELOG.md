@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Changed
+- Split up the integration specs. Removed some duplication in the specs.
+
+
 ## [0.6.0]- 2015-11-30
 ### Added
 - Added optional language_model, that make it possible to compare words based on the word stem. (Like 'testing', 'tests', 'tested' all matched with the stem 'test')
