@@ -17,6 +17,6 @@ describe TextClassifier do
     probabilities.set(category: category2, value: 0.49)
     allow(calculator).to(receive(:get_probabilities_for) { probabilities })
 
-    expect(classifier.classify("France").id).to eq category.id
+    expect(classifier.classify('France').id).to eq category.id
   end
 end

@@ -38,7 +38,6 @@ describe ProbabilityCollection do
       expect(collection.find(object_1)).to eq 0.25
       expect(collection.find(object_2)).to eq 0.1
     end
-
   end
 
   describe 'sum' do

@@ -8,5 +8,4 @@ describe FileExample do
       expect(example.text).to include 'test'
     end
   end
-
 end

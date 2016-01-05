@@ -7,8 +7,8 @@ describe NaiveText do
 
   describe 'build' do
     it 'support the old categories_config syntax' do
-      categories_config = [{name: 'interesting', path: 'spec/training/positive'},
-                           {name: 'boring', path: 'spec/training/negative'}]
+      categories_config = [{ name: 'interesting', path: 'spec/training/positive' },
+                           { name: 'boring', path: 'spec/training/negative' }]
       expect(CategoriesFactory).to receive(:build).with(categories_config)
       expect(TextClassifier).to receive(:new)
       expect(NaiveText.build(categories_config))
@@ -18,8 +18,8 @@ describe NaiveText do
     let(:examples2) { ExamplesFactory.from_files 'spec/training/negative' }
 
     it 'supports the new categories_config syntax' do
-      categories_config = {categories: [{name: 'interesting', examples: examples1 },
-                           {name: 'boring', example: examples2}]}
+      categories_config = { categories: [{ name: 'interesting', examples: examples1 },
+                                         { name: 'boring', example: examples2 }] }
       expect(CategoriesFactory).to receive(:build).with(categories_config)
       expect(TextClassifier).to receive(:new)
       expect(NaiveText.build(categories_config))
