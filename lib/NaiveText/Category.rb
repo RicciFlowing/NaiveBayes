@@ -3,7 +3,6 @@ class Category
 
   attr_reader :name, :id, :weight
 
-
   def initialize(args)
     @name     = args[:name]
     @examples = args[:examples]
@@ -14,7 +13,7 @@ class Category
   end
 
   def p(word)
-    if(@examples.word_count>0)
+    if @examples.word_count > 0
       @examples.count(word).to_f / @examples.word_count
     else
       0
@@ -35,7 +34,7 @@ class NullCategory
   attr_reader :id
 
   def initialize
-    @name = "No category"
+    @name = 'No category'
     @id = 0
   end
 end

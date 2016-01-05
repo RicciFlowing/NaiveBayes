@@ -1,18 +1,17 @@
 class ProbabilityCollection
   def initialize(args)
-    @categories  =  args[:categories] || []
+    @categories = args[:categories] || []
     initialize_ids
     @probabilities = []
     initalize_probabilities(@ids)
   end
 
   def find(category)
-    return @probabilities[category.id]
+    @probabilities[category.id]
   end
 
-
   def set(args)
-    category  = args[:category]
+    category = args[:category]
     value = args[:value]
     @probabilities[category.id] = value
   end
@@ -23,14 +22,14 @@ class ProbabilityCollection
     if category
       @probabilities[category.id] *= factor
     else
-      @probabilities.map! {|el| el*factor}
+      @probabilities.map! { |el| el * factor }
     end
   end
 
   def normalize
-    if self.sum > 0
-      normalization_factor = 1.to_f / self.sum
-      self.multiply(factor: normalization_factor)
+    if sum > 0
+      normalization_factor = 1.to_f / sum
+      multiply(factor: normalization_factor)
     end
     self
   end
@@ -38,7 +37,7 @@ class ProbabilityCollection
   def category_with_max
     if @probabilities.max > 0
       id = @probabilities.find_index(@probabilities.max)
-      @categories.find {|category| category.id == id}
+      @categories.find { |category| category.id == id }
     else
       @categories.default
     end
@@ -50,11 +49,11 @@ class ProbabilityCollection
 
   def greater_then(value)
     @probabilities.map! do |p|
-       if p > value
-         p
-       else
-         0
-       end
+      if p > value
+        p
+      else
+        0
+      end
     end
   end
 
@@ -67,15 +66,16 @@ class ProbabilityCollection
     @categories.each do |category|
       result << category.to_s
       result << ':'
-      result << self.find(category).to_s
+      result << find(category).to_s
       result << "\n"
     end
     result
   end
 
   private
+
   def initialize_ids
-    @ids =  @categories.map { |category| category.id }
+    @ids = @categories.map(&:id)
   end
 
   def initalize_probabilities(ids)

@@ -6,13 +6,14 @@ class Example
   end
 
   private
-    def load_text(args)
 
-    end
+  def load_text(_args)
+  end
 end
 
 class FileExample < Example
   private
+
     def load_text(args)
       @text = File.read(args[:path])
     end
