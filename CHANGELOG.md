@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 ### Changed
 - Split up the integration specs. Removed some duplication in the specs.
-
+### Deleted
+- Removed old and deprecated array option for CategoriesFactory
 
 ## [0.6.0]- 2015-11-30
 ### Added
