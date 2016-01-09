@@ -13,11 +13,6 @@ class TextClassifier
     @calculator.get_probabilities_for(text)
   end
 
-  def propabilities(text)
-    puts 'This notation is deprecated in will be removed in later versions. Please use probabilities (4th character b instead of p)'
-    probabilities(text)
-  end
-
   private
 
   def get_category_for(text)

@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Cleaned the source code to be more readable.
 ### Deleted
 - Removed old and deprecated array option for CategoriesFactory
+- Removed old misspelled call for propabilities on TextClassifier
 
 ## [0.6.0]- 2015-11-30
 ### Added
