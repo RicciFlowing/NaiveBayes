@@ -2,10 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [1.0.0]- 2016-1-5
 ### Changed
 - Split up the integration specs. Removed some duplication in the specs.
 - Refactored the specs to be more concise.
+- Cleaned the source code to be more readable.
 ### Deleted
 - Removed old and deprecated array option for CategoriesFactory
 
